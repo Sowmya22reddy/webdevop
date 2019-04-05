@@ -1,0 +1,105 @@
+<html>
+  <body>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" routerLink=""><b>StreetStyleStore</b></a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="">Home</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/about-us" routerLinkActive="active">AboutUs</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/register" routerLinkActive="active">SignUp</a>
+    </li>
+  </ul>
+</nav>
+<br>
+<div class="container" style="padding-left:30%;padding-right: 30%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+    
+  <div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center"><b>Create Account</b></h4>
+    <p class="text-center">Get started with your free account</p>
+    <p>
+      <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+      <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+    </p>
+    <p class="divider-text">
+          <span class="bg-light">OR</span>
+      </p>
+    <form [formGroup]="register" (ngSubmit)="onSubmit()">
+    <div class="form-group input-group">
+     
+          <input name="" class="form-control" placeholder="Username" type="text" 
+                 formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username?.errors }">
+
+              <div *ngIf="submitted && f.username?.errors" class="invalid-feedback">
+                  <div *ngIf="f.username?.errors.required">Username is required</div>
+                  <div *ngIf="f.username?.errors.minlength">Username must have minlength 4</div>
+              </div>
+
+    </div> <!-- form-group// -->
+
+
+    <div class="form-group input-group">
+        
+          <input name="" class="form-control" placeholder="Email address" type="email"
+                 formControlName="emailId" [ngClass]="{ 'is-invalid': submitted && f.emailId?.errors }">
+              <div *ngIf="submitted && f.emailId?.errors" class="invalid-feedback">
+                  <div *ngIf="f.emailId?.errors.required">Email is required</div>
+                  <div *ngIf="f.emailId?.errors.email">Email must be a valid email address</div>
+              </div>
+
+    </div> <!-- form-group// -->
+
+
+      <div class="form-group input-group">
+        
+        <input name="" class="form-control" placeholder="Phone number" type="text"
+               formControlName="phoneno" [ngClass]="{ 'is-invalid': submitted && f.phoneno?.errors }">
+            <div *ngIf="submitted && f.phoneno?.errors" class="invalid-feedback">
+                <div *ngIf="f.phoneno?.errors.required">Phone No. is required</div>
+                <div *ngIf="f.phoneno?.errors.minlength">Phone No. must be of minlength 10</div>
+                <div *ngIf="f.phoneno?.errors.pattern">Invalid Phone No.</div>
+            </div>
+
+      </div> <!-- form-group// -->
+
+      
+      <div class="form-group input-group">
+        
+          <input class="form-control" placeholder="Enter password" type="password"
+                 formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password?.errors }">
+              <div *ngIf="submitted && f.password?.errors" class="invalid-feedback">
+                  <div *ngIf="f.password?.errors.required">Password is required</div>
+                  <div *ngIf="f.password?.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+      </div> <!-- form-group// -->
+
+
+       
+                                         
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" style="background-color:brown;color:wheat;"> Create Account  </button>
+      </div> <!-- form-group// --> 
+      
+      <!-- <h3>{{resp?.message}}</h3> -->
+      
+      <p class="text-center">Have an account? <a routerLink="/login">Log In</a> </p>                                                                 
+  </form>
+  </article>
+  </div> <!-- card.// -->
+  
+  </div> 
+  <!--container end.//-->
+</body>
+</html>
+  
