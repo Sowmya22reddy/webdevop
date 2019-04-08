@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
+import { URLHelper } from '../URLHelper';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   login: FormGroup;
   submitted = false;
   resp;
+  urls = URLHelper.urls;
   
 
   constructor(private formBuilder: FormBuilder,
@@ -51,7 +53,21 @@ export class LoginComponent implements OnInit {
         (response) =>{
           this.resp = response;
           alert(this.resp.message);
-          this.router.navigateByUrl('/user-home');
+
+          if(this.resp.status == true){
+
+            this.urls.login=false;
+            this.urls.register=false;
+            this.urls.aboutus=false;
+            this.urls.cart=true;
+            this.urls.logout=true;
+            this.router.navigateByUrl('/user-home');
+          }
+          else
+          {
+            this.login.reset();
+            
+          }
           
         }
       )

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserHomeComponent } from './user-home/user-home.component';
     HomeComponent,
     AboutUsComponent,
     ForgotpasswordComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    NavbarComponent
     
   ],
   imports: [

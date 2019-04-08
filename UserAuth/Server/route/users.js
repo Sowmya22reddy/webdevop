@@ -37,7 +37,7 @@ exports.registerUser = function(req,res){
                         var encryptPassword = cryptr.encrypt(newUser.password);
                         newUser.password = encryptPassword;
                         newUser.save(result);
-                        res.send({status:false,message:"Registered succesfully"});
+                        res.send({status:true,message:"Registered succesfully"});
                     }
                 });
             }

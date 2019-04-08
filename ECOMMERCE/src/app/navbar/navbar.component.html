@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  
+  <a class="navbar-brand" routerLink="">StreetStyleStore</a>
+  
+  
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.home" routerLink="" routerLinkActive="active">Home</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.aboutus" routerLink="/about-us" routerLinkActive="active">AboutUs</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.login" routerLink="/login" routerLinkActive="active">Login</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.register" routerLink="/register" routerLinkActive="active">SignUp</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.cart" routerLink="/cart" routerLinkActive="active">Cart</a>
+    </li> 
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.logout" routerLink="/login" routerLinkActive="active">Logout</a>
+    </li> 
+    
+    
+  </ul>
+</nav>

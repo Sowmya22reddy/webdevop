@@ -7,11 +7,9 @@ var UserSchema = new Schema({
     username:{
         type:String
     },
-
     emailId:{
         type:String
     },
-
     phoneno:{
         type:Number
     },
