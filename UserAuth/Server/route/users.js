@@ -1,6 +1,7 @@
 var User = require("../model/user");
 var cryptr = require('cryptr');
 cryptr = new cryptr('1559');
+var jwt = require('jsonwebtoken');
 
 exports.registerUser = function(req,res){
 
@@ -37,7 +38,12 @@ exports.registerUser = function(req,res){
                         var encryptPassword = cryptr.encrypt(newUser.password);
                         newUser.password = encryptPassword;
                         newUser.save(result);
-                        res.send({status:true,message:"Registered succesfully"});
+                        // res.send({status:true,message:"Registered succesfully"}
+
+                        //generate token
+                        let payload = {subject:result._id};
+                        let token = jwt.sign(payload,'secretKey');
+                        res.status(200).send({token});
                     }
                 });
             }
@@ -69,8 +75,12 @@ exports.loginUser = function(req,res){
                 //     console.log(obj);
                 var decryptPassword = cryptr.decrypt(obj.password);
                 if(decryptPassword == password){
-                    res.send({status:true,message:"Login Successful",obj});
-                    // res.redirect('/about-us');
+
+                    //generate token
+                    let payload = {subject:obj._id};
+                    let token = jwt.sign(payload,'secretKey');
+                    res.send({status:true,message:"Login Successful",token});
+                   
                   
                 }
 
@@ -83,5 +93,29 @@ exports.loginUser = function(req,res){
             }
         }
     });
+
+}
+
+function verifyToken(req,res,next){
+
+    if(!res.headers.authrization){
+        return res.status(401).send('unauthorized request')
+    }
+
+    let token = req.headers.authrization.split('')[1]
+
+    if(token === null){
+        return res.status(401).send('unauthorized request')
+    }
+
+    let payload = jwt.verify('token',secretKey)
+
+    if(payload){
+
+        return res.status(401).send('unauthorized request')
+    }
+
+    req.userId = payload.subject
+    next()
 
 }

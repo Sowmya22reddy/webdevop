@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../register.service';
+// import { RegisterService } from '../register.service';
 import {  Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, 
-              private registerService:RegisterService,
+              private authService:AuthService,
               private router:Router) { }
 
   ngOnInit() {
@@ -43,13 +44,21 @@ export class RegisterComponent implements OnInit {
 
       // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.register.value));
 
-      this.registerService.registerUser(this.register.value).subscribe(
+      this.authService.registerUser(this.register.value).subscribe(
         (response) =>{
           this.resp = response;
-          alert(this.resp.message);
-          if(this.resp.status == true){
-            this.router.navigateByUrl('/login');
-          }
+          // alert(this.resp.message);
+          console.log(this.resp);
+
+          localStorage.setItem('token',this.resp.token);
+          this.router.navigate(['/login']);
+          // if(this.resp.status == true){
+          //   this.router.navigateByUrl('/login');
+          // }
+        },
+        (error) => {
+          console.log(error);
+          
         }
       )
   }

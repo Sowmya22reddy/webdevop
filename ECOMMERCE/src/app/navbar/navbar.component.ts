@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { URLHelper } from '../URLHelper';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,7 @@ import { URLHelper } from '../URLHelper';
 export class NavbarComponent implements OnInit {
 
   currentURLs = URLHelper.urls;
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
   }

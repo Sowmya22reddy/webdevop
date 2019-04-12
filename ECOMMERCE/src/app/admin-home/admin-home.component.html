@@ -1,0 +1,65 @@
+<br><br>
+<div class="container">
+  
+<div class="row">
+  
+  <div class="col-md-6">
+  <form [formGroup]="addProd" (ngSubmit)="onSubmit()">
+  
+ <div class="form-group">
+   
+   <b>Product Name:</b>
+   <input name="prodName" class="form-control" placeholder="Product Name" type="text"
+          formControlName="prodName" [ngClass]="{ 'is-invalid': submitted && f.prodName.errors }">
+          <div *ngIf="submitted && f.prodName.errors" class="invalid-feedback">
+            <div *ngIf="f.prodName.errors.required">Product Name is required</div>
+            <div *ngIf="f.prodName.errors.minlength">Product Name must have minlength 6</div>
+        </div>
+
+ </div>
+    
+ <b>Product Price:</b>
+ <div class="form-group">
+  <input name="prodPrice" class="form-control" placeholder="Product Price" type="text"
+         formControlName="prodPrice" [ngClass]="{ 'is-invalid': submitted && f.prodPrice.errors }">
+  <div *ngIf="submitted && f.prodPrice.errors" class="invalid-feedback">
+    <div *ngIf="f.prodPrice.errors.required">Product Price is required</div>
+    <!-- <div *ngIf="f.prodPrice.errors.minlength">Product Price must have minlength 6</div> -->
+    <div *ngIf="f.prodPrice.errors.pattern">Invalid Prod Price</div>
+</div>
+ </div>
+  
+ <b>Product Description:</b>
+ <div class="form-group">
+  <input name="prodDesc" class="form-control" placeholder="Product Desc" type="text"
+         formControlName="prodDesc" [ngClass]="{ 'is-invalid': submitted && f.prodDesc.errors }">
+  <div *ngIf="submitted && f.prodDesc.errors" class="invalid-feedback">
+    <div *ngIf="f.prodDesc.errors.required">Product Description is required</div>
+    <div *ngIf="f.prodDesc.errors.minlength">Product Description must have minlength 10</div>
+    <div *ngIf="f.prodDesc.errors.maxlength">Product Description should not exceed 30 chars</div>
+</div>
+ </div>
+ 
+<div class="form-group">
+ 
+<label class="control-label">Product Image</label>
+ 
+<input class="filestyle" data-icon="false" type="file">
+ 
+</div>
+ 
+    <button type="submit" id="loginSubmit" class="btn btn-success loginFormElement">Add Product</button>
+  
+    </form>
+    
+    </div>
+</div>  
+  </div>
+  
+  <!-- /.container -->
+
+
+
+
+           
+        

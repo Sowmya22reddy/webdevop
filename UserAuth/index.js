@@ -2,7 +2,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var cors = require('cors');
+// const jwt = require('jsonwebtoken');
 var User = require("./server/route/users");
+var Product = require("./server/route/products")
 
 mongoose.connect("mongodb://localhost/NEWUSER");
 
@@ -14,6 +16,7 @@ app.use(bodyParser.json());
 
 app.post('/api/register',User.registerUser);
 app.post('/api/login',User.loginUser);
+app.post('/api/addProduct',Product.addProduct);
 
 app.listen(3209,function(){
     console.log("server started");
