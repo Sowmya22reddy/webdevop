@@ -24,8 +24,10 @@
     </li> &nbsp;&nbsp;
     <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.logout" style="cursor:pointer" (click) = "authService.logoutUser()">Logout</a>
-    </li> 
-    
+    </li> &nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >Admin</a>
+    </li>
     
   </ul>
 </nav>

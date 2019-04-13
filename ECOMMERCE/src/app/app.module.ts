@@ -13,9 +13,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
+// import { AuthGuard } from './auth.guard';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { EcommGuard } from './ecomm.guard';
 
 
 
@@ -48,7 +49,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
         
       },
       {
-        path:'about-us',component: AboutUsComponent,canActivate: [AuthGuard]
+        path:'about-us',component: AboutUsComponent,canActivate: [EcommGuard]
       },
       {
         path:'login',component: LoginComponent
@@ -60,7 +61,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
         path:'forgotpassword',component: ForgotpasswordComponent
       },
       {
-        path:'user-home',component: UserHomeComponent,canActivate: [AuthGuard]
+        path:'user-home',component: UserHomeComponent,canActivate: [EcommGuard]
       },
       {
         path:'admin-home',component: AdminHomeComponent
@@ -68,7 +69,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
       
     ])
   ],
-  providers: [AuthService,AuthGuard,
+  providers: [AuthService,EcommGuard,
   {
     provide : HTTP_INTERCEPTORS,
     useClass : TokenInterceptorService,

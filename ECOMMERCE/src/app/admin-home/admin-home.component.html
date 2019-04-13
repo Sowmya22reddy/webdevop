@@ -18,8 +18,9 @@
 
  </div>
     
- <b>Product Price:</b>
+ 
  <div class="form-group">
+    <b>Product Price:</b>
   <input name="prodPrice" class="form-control" placeholder="Product Price" type="text"
          formControlName="prodPrice" [ngClass]="{ 'is-invalid': submitted && f.prodPrice.errors }">
   <div *ngIf="submitted && f.prodPrice.errors" class="invalid-feedback">
@@ -29,8 +30,9 @@
 </div>
  </div>
   
- <b>Product Description:</b>
+ 
  <div class="form-group">
+    <b>Product Description:</b>
   <input name="prodDesc" class="form-control" placeholder="Product Desc" type="text"
          formControlName="prodDesc" [ngClass]="{ 'is-invalid': submitted && f.prodDesc.errors }">
   <div *ngIf="submitted && f.prodDesc.errors" class="invalid-feedback">
@@ -40,13 +42,25 @@
 </div>
  </div>
  
-<div class="form-group">
+<!-- <div class="form-group">
  
 <label class="control-label">Product Image</label>
  
 <input class="filestyle" data-icon="false" type="file">
  
-</div>
+</div> -->
+
+<div class="form-group">
+   
+    <b>Product Image:</b>
+    <input name="prodImage" class="form-control" placeholder="Product Name" type="text"
+           formControlName="prodImage" [ngClass]="{ 'is-invalid': submitted && f.prodImage.errors }">
+           <div *ngIf="submitted && f.prodName.errors" class="invalid-feedback">
+             <div *ngIf="f.prodImage.errors.required">Product Image is required</div>
+             
+         </div>
+ 
+  </div>
  
     <button type="submit" id="loginSubmit" class="btn btn-success loginFormElement">Add Product</button>
   

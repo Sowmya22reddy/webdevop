@@ -52,6 +52,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token',this.resp.token);
           
           if(this.resp.status == true){
+            
+          this.router.navigate(['/user-home']);
             this.urls.login=false;
             this.urls.register=false;
             this.urls.home=false;
@@ -59,7 +61,6 @@ export class LoginComponent implements OnInit {
             this.urls.aboutus=true;
             this.urls.cart=true;
             this.urls.logout=true;
-          this.router.navigate(['/user-home']);
           }
           else
           {

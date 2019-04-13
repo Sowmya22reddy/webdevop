@@ -25,7 +25,8 @@ export class AdminHomeComponent implements OnInit {
     this.addProd = this.formBuilder.group({
       prodName: ['', [Validators.required, Validators.minLength(6)]],
       prodPrice: ['', [Validators.required,Validators.pattern(/^[1-9]\d*$/)]],
-      prodDesc:['',[Validators.required,Validators.minLength(10),Validators.maxLength(30)]]
+      prodDesc:['',[Validators.required,Validators.minLength(10),Validators.maxLength(30)]],
+      prodImage:['',Validators.required]
   });
 
   }

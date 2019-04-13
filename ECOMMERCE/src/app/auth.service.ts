@@ -34,12 +34,12 @@ export class AuthService {
 
   logoutUser(){
     localStorage.removeItem('token');
-    // this.urls.userhome=false;
-    // this.urls.cart=false;
-    // this.urls.logout=false;
-    // this.urls.login=true;
-    // this.urls.register=true;
-    // this.urls.home=true;
+    this.urls.userhome=false;
+    this.urls.cart=false;
+    this.urls.logout=false;
+    this.urls.login=true;
+    this.urls.register=true;
+    this.urls.home=true;
     this.router.navigate(['']);
   }
 

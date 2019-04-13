@@ -7,6 +7,7 @@ export class URLHelper
         "aboutus":true,
         "cart":false,
         "logout":false,
-        "userhome":false
+        "userhome":false,
+        "adminhome":true
     }
 }
