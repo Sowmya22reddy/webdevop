@@ -50,11 +50,11 @@ export class RegisterComponent implements OnInit {
           // alert(this.resp.message);
           console.log(this.resp);
 
-          localStorage.setItem('token',this.resp.token);
-          this.router.navigate(['/login']);
-          // if(this.resp.status == true){
-          //   this.router.navigateByUrl('/login');
-          // }
+          // localStorage.setItem('token',this.resp.token);
+          // this.router.navigate(['/login']);
+          if(this.resp.status == true){
+            this.router.navigate(['/login']);
+          }
         },
         (error) => {
           console.log(error);

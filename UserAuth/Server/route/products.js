@@ -3,6 +3,7 @@ var Product = require("../model/product");
 exports.addProduct = function(req,res){
 
     console.log(req.body);
+    var prodId = req.body.prodId;
     var prodName = req.body.prodName;
     var prodPrice = req.body.prodPrice;
     var prodDesc = req.body.prodDesc;
@@ -10,12 +11,13 @@ exports.addProduct = function(req,res){
 
     var newProd = new Product({
     
+        prodId:prodId,
         prodName:prodName,
         prodPrice:prodPrice,
         prodDesc:prodDesc,
         prodImage:prodImage
     });
-    Product.findOne({prodName:prodName},function(err,event){
+    Product.findOne({prodId:prodId},function(err,event){
         if(err){
             res.send({status:false,message:"error occured while finding product",err});
             console.error(err);
@@ -37,6 +39,22 @@ exports.addProduct = function(req,res){
             else{
                 res.send({status:false,message:"Product already exist"});
             }
+        }
+    });
+
+}
+
+exports.getProducts = function(request,response){
+
+    Product.find(function(err,res){
+        if(err){
+            console.log(err);
+            // res.send({status:false,message:"error in loading products"});
+        }
+        else{
+            console.log(res);
+            // res.send({status:true,message:"Success",res});
+            response.json(res);
         }
     });
 

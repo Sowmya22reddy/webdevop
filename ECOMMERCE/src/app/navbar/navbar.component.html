@@ -20,14 +20,19 @@
       <a class="nav-link" *ngIf="currentURLs.register" routerLink="/register">SignUp</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.products" routerLink="/products" >Products</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.cart" routerLink="/cart" >Cart</a>
     </li> &nbsp;&nbsp;
     <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.logout" style="cursor:pointer" (click) = "authService.logoutUser()">Logout</a>
     </li> &nbsp;&nbsp;
     <li class="nav-item">
-      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >Admin</a>
+      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >Add Products</a>
+    </li>&nbsp;&nbsp;
+    <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.adminpage" routerLink="/adminpage" >AdminHome</a>
     </li>
-    
   </ul>
 </nav>

@@ -61,6 +61,9 @@ export class LoginComponent implements OnInit {
             this.urls.aboutus=true;
             this.urls.cart=true;
             this.urls.logout=true;
+            this.urls.adminhome=false;
+            this.urls.adminpage=false;
+            this.urls.products=true;
           }
           else
           {

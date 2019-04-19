@@ -3,6 +3,9 @@ var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
 
+    prodId:{
+        type:Number
+    },
     prodName:{
         type:String
     },

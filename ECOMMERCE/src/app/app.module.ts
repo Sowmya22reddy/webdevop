@@ -17,6 +17,8 @@ import { AuthService } from './auth.service';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { EcommGuard } from './ecomm.guard';
+import { AdminpageComponent } from './adminpage/adminpage.component';
+import { ProductsComponent } from './products/products.component';
 
 
 
@@ -30,7 +32,9 @@ import { EcommGuard } from './ecomm.guard';
     ForgotpasswordComponent,
     UserHomeComponent,
     NavbarComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminpageComponent,
+    ProductsComponent
     
     
   ],
@@ -65,6 +69,12 @@ import { EcommGuard } from './ecomm.guard';
       },
       {
         path:'admin-home',component: AdminHomeComponent
+      },
+      {
+        path:'adminpage',component: AdminpageComponent
+      },
+      {
+        path:'products',component: ProductsComponent,canActivate: [EcommGuard]
       }
       
     ])

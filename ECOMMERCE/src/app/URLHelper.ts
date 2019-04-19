@@ -8,6 +8,8 @@ export class URLHelper
         "cart":false,
         "logout":false,
         "userhome":false,
-        "adminhome":true
+        "adminhome":false,
+        "adminpage":false,
+        "products":false
     }
 }

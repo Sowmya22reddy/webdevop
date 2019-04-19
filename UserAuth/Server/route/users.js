@@ -38,12 +38,12 @@ exports.registerUser = function(req,res){
                         var encryptPassword = cryptr.encrypt(newUser.password);
                         newUser.password = encryptPassword;
                         newUser.save(result);
-                        // res.send({status:true,message:"Registered succesfully"}
+                        res.send({status:true,message:"Registered succesfully"})
 
                         //generate token
-                        let payload = {subject:result._id};
-                        let token = jwt.sign(payload,'secretKey');
-                        res.status(200).send({token});
+                        // let payload = {subject:result._id};
+                        // let token = jwt.sign(payload,'secretKey');
+                        // res.status(200).send({token});
                     }
                 });
             }

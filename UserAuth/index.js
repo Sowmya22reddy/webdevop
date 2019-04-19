@@ -6,6 +6,7 @@ var cors = require('cors');
 var User = require("./server/route/users");
 var Product = require("./server/route/products")
 
+
 mongoose.connect("mongodb://localhost/NEWUSER");
 
 var db = mongoose.connection;
@@ -17,6 +18,8 @@ app.use(bodyParser.json());
 app.post('/api/register',User.registerUser);
 app.post('/api/login',User.loginUser);
 app.post('/api/addProduct',Product.addProduct);
+app.get('/api/getProduct',Product.getProducts);
+    
 
 app.listen(3209,function(){
     console.log("server started");

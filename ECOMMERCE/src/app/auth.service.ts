@@ -28,6 +28,10 @@ export class AuthService {
     return this.http.post("http://localhost:3209/api/addProduct",prod);
   }
 
+  getProducts(){
+    return this.http.get("http://localhost:3209/api/getProduct");
+  }
+
   loggedIn(){
     return !!localStorage.getItem('token');
   }
@@ -40,6 +44,9 @@ export class AuthService {
     this.urls.login=true;
     this.urls.register=true;
     this.urls.home=true;
+    this.urls.adminhome=false;
+    this.urls.adminpage=false;
+    this.urls.products=false;
     this.router.navigate(['']);
   }
 
