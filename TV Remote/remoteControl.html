@@ -1,0 +1,153 @@
+<html>
+<head>
+<style>
+
+body
+{
+/* background-color:white; */
+background: url('https://www.webfx.com/blog/wp-content/uploads/2010/05/iStock-664975574.jpg');
+background-position: fixed;
+background-repeat: no-repeat;
+background-size: 100%;
+} 
+.box
+{
+background-color:#3d4543;
+height:300px;
+width:250px;
+border-radius:10px;
+position:relative;
+top:80px;
+left:40%;
+} 
+
+.display
+{
+background-color:#222;
+width:220px;
+position:relative;
+left:15px;
+top:20px;
+height:40px;
+}
+.display input
+{
+position:relative;
+left:2px;
+top:2px;
+height:35px;
+color:black;
+background-color:#bccd95;
+font-size:21px;
+text-align:right;
+} 
+
+.keys
+{
+position:relative;
+top:30px;
+left:0;
+}
+.message
+{
+    padding-top: 50px;
+}
+.button
+{
+width:40px;
+height:30px;
+border:none;
+border-radius:8px;
+margin-left:17px;
+cursor:pointer;
+border-top:2px solid transparent;
+font-weight: bold;
+}
+.button.gray
+{
+color:white;
+background-color:#6f6f6f;
+border-bottom:black 2px solid;
+border-top:2px #6f6f6f solid;
+}
+.button.pink
+{
+color:black;
+background-color:#ee0e0e;
+border-bottom:black 2px solid;
+}
+.button.black
+{
+color:white;
+background-color:303030;
+border-bottom:rgb(114, 110, 110) 2px solid;
+border-top:2px 303030 solid;
+}
+
+.gray:active
+{
+border-top:black 2px solid;
+border-bottom:2px #6f6f6f solid;
+}
+.pink:active
+{
+border-top:black 2px solid;
+border-bottom:#ff4561 2px solid;
+}
+.black:active
+{
+border-top:black 2px solid;
+border-bottom:#303030 2px solid;
+}
+
+p
+{
+line-height:10px;
+}
+
+</style>
+</head>
+<body>
+
+<center><div id="channel" class="message"></div></center>
+<div class="box">
+<!--<div class="display"><input type="text" readonly size="15" id="d"></div>-->
+<center><div class="keys">
+    <!-- button ON & OFF -->
+    <p style="font-weight:bold;
+              color: white;
+              font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+              SONY
+    </p>
+
+   <p> <input type="button" class="button pink" 
+
+    value="ON" onclick='onFunc()'>
+	<input type="button" class="button pink" 
+
+    value="OFF" onclick='offFunc()'></p>
+	
+	<!-- Channel nos. -->
+    <p><input type="button" class="button black" value="7" onclick='channel7()'>
+	   <input type="button" class="button black" value="8" onclick='channel8()'>
+       <input type="button" class="button black" value="9" onclick='channel9()'></p>
+	
+    <p><input type="button" class="button black" value="4" onclick='channel4()'>
+	   <input type="button" class="button black" value="5" onclick='channel5()'>
+       <input type="button" class="button black" value="6" onclick='channel6()'></p>
+    
+	<p><input type="button" class="button black" value="1" onclick='channel1()'>
+	   <input type="button" class="button black" value="2" onclick='channelTwo()'>
+       <input type="button" class="button black" value="3" onclick='channelThree()'></p>
+    
+	<p><input type="button" class="button black" value="0" onclick='channelTen()'>
+	   <!--<input type="button" class="button black" value="." onclick='v(".")'>
+       <input type="button" class="button black" value="C" onclick='c("")'>--></p>
+</div></center>
+</div>
+
+<script src="remote.js"></script>
+
+</script>
+</body>
+</html>
