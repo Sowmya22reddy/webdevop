@@ -1,53 +1,71 @@
 <html>
-  <body >
-<div>
-  <img src="http://pkbazaar.pk/blog/wp-content/uploads/2018/11/online-store-banner-sample.png" style="margin-left: 3%" width="94%" height="340px">
-</div>
 
-<br><br> 
+<body>
+  <div>
+    <img src="http://pkbazaar.pk/blog/wp-content/uploads/2018/11/online-store-banner-sample.png" style="margin-left: 3%"
+      width="94%" height="340px">
+  </div>
 
-
-<h4><b>Stand in the spotlight with these glamorous outfits</b></h4>
-
+  <br><br>
 
 
-<!-- <div >
+  <h4><b>Stand in the spotlight with these glamorous outfits</b></h4>
+
+
+
+  <!-- <div >
 <a (click)="getProd()"><img class="product" src="http://www.rcbrady.co.uk/wp-content/uploads/2015/09/green-button.png"></a>
 </div> -->
 
-<br><br>
+  <br><br>
 
 
-<table *ngIf="products" class="container" style="max-width:30%;max-height:30%">
-  <tr class="row">
-    <td class="col-md-4" *ngFor="let product of products">
-      <div class="thumbnail">
-      <a href="">
-        <img class="prodImage" src="{{product.prodImage}}">
-        
-        <div class="caption">
-          <b><p class="prodName">{{product.prodName}}</p> </b>         
+  <table *ngIf="products" class="container" style="max-width:30%;max-height:30%">
+    <tr class="row">
+      <td class="col-md-4" *ngFor="let product of products">
+        <div class="thumbnail">
+          <a href="">
+            <img class="prodImage" src="{{product.prodImage}}">
+
+            <div class="caption">
+              <b>
+                <p class="prodName">{{product.prodName}}</p>
+              </b>
+            </div>
+            <b>
+              <p class="prodPrice">Rs: {{product.prodPrice}}</p>
+            </b>
+            <!-- <p class="prodDesc">{{product.prodDesc}}</p> -->
+          </a>
+          <div class="container">
+            <div class="row">
+         
+            <button class="glyphicon glyphicon-edit" [routerLink]="['/update-prod',product._id]"></button>
+            <button class="glyphicon glyphicon-trash" (click)="deleteProduct(product._id)"></button>
+          </div>
         </div>
-        <b><p class="prodPrice">Rs: {{product.prodPrice}}</p></b>
-        <!-- <p class="prodDesc">{{product.prodDesc}}</p> -->
-      </a>
-    </div>
-    </td>
-  </tr>
+        </div>
+      </td>
+    </tr>
 
-  
-</table>
 
-<br><br>
+  </table>
 
-<footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+  <br><br>
+
+  <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
     <div class="container">
       <div class="row row-30">
         <div class="col-md-4 col-xl-5">
-          <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
-            <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business consulting, and marketing.</p>
+          <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light"
+                src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37"
+                srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+            <p>We are an award-winning creative agency, dedicated to the best result in web design, promotion, business
+              consulting, and marketing.</p>
             <!-- Rights-->
-            <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+            <p class="rights"><span>©  </span><span
+                class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights
+                Reserved.</span></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -62,7 +80,8 @@
           </dl>
           <dl class="contact-list">
             <dt>phones:</dt>
-            <dd><a href="tel:#">+91 7568543012</a> <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span> <a href="tel:#">+91 9571195353</a>
+            <dd><a href="tel:#">+91 7568543012</a> <span>&nbsp;&nbsp;/&nbsp;&nbsp;</span> <a href="tel:#">+91
+                9571195353</a>
             </dd>
           </dl>
         </div>
@@ -73,13 +92,14 @@
             <li><a routerLink="/about-us">AboutUs</a></li>
             <li><a routerLink="/login">Login</a></li>
             <li><a routerLink="/register">SignUp</a></li>
-            
+
           </ul>
         </div>
       </div>
     </div>
-    
+
   </footer>
 
 </body>
+
 </html>

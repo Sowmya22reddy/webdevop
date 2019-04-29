@@ -26,4 +26,13 @@ export class ProductsComponent implements OnInit {
 
   }
 
+  deleteProduct(id){
+    this.authService.deleteProduct(id).subscribe(
+      (res) =>{
+        console.log('Deleted');
+      }
+      
+    )
+  }
+
 }

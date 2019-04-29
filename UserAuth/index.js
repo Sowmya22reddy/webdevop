@@ -19,6 +19,9 @@ app.post('/api/register',User.registerUser);
 app.post('/api/login',User.loginUser);
 app.post('/api/addProduct',Product.addProduct);
 app.get('/api/getProduct',Product.getProducts);
+app.get('/api/getProdById/:id',Product.getProductsByID);
+app.put('/api/updateProduct/:id',Product.updateProduct);
+app.delete('/api/deleteProduct/:id',Product.deleteProduct);
     
 
 app.listen(3209,function(){

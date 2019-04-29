@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 // import { URLHelper } from '../URLHelper';
 
@@ -14,11 +14,13 @@ export class AdminHomeComponent implements OnInit {
   addProd: FormGroup;
   submitted = false;
   resp;
+  products;
   // urls = URLHelper.urls;
 
   constructor(private formBuilder: FormBuilder,
               private router:Router,
-              private authService:AuthService) { }
+              private authService:AuthService,
+              private route:ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -29,6 +31,20 @@ export class AdminHomeComponent implements OnInit {
       prodDesc:['',[Validators.required,Validators.minLength(10),Validators.maxLength(50)]],
       prodImage:['',Validators.required]
   });
+
+  // this.authService.getProducts().subscribe(
+  //   (response) =>{
+  //     this.products = response;
+  //   }
+  // )
+
+//   this.route.params.subscribe(params => {
+//     this.authService.getProductsByID(params['id']).subscribe(res => {
+//       this.products = res;
+//   });
+// });
+  
+  
 
   }
 
@@ -49,6 +65,7 @@ export class AdminHomeComponent implements OnInit {
         //alert(this.resp.message);
         
         console.log(this.resp);
+        alert(this.resp.message);
                          
       },
       (error) => {

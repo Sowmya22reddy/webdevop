@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { URLHelper } from './URLHelper';
+import { Icu } from '@angular/compiler/src/render3/r3_ast';
+import { ProductModel } from './productModel';
 
 
 @Injectable({
@@ -30,6 +32,35 @@ export class AuthService {
 
   getProducts(){
     return this.http.get("http://localhost:3209/api/getProduct");
+  }
+
+  getProductsByID(id){
+    return this.http.get("http://localhost:3209/api/getProdById/" +id);
+  }
+
+  updateProduct(product:ProductModel){
+    return this.http.put("http://localhost:3209/api/updateProduct"+ '/' +product._id,product);
+  }
+
+  // updateProduct(prodId,prodName,prodPrice,prodDesc,prodImage,id){
+
+  //   const obj = {
+  //     prodId:prodId,
+  //     prodName:prodName,
+  //     prodPrice:prodPrice,
+  //     prodDesc:prodDesc,
+  //     prodImage:prodImage
+  //   }
+  //   this.http.put("http://localhost:3209/api/updateProduct/"+id,obj).subscribe(
+  //     (res)=>{
+  //       console.log('Done');
+  //     }
+  //   )
+
+  // }
+
+  deleteProduct(id){
+    return this.http.delete("http://localhost:3209/api/deleteProduct/"+id);
   }
 
   loggedIn(){
