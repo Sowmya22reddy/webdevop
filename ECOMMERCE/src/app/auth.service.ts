@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { URLHelper } from './URLHelper';
-import { Icu } from '@angular/compiler/src/render3/r3_ast';
+// import { Icu } from '@angular/compiler/src/render3/r3_ast';
 import { ProductModel } from './productModel';
 
 
@@ -38,25 +38,31 @@ export class AuthService {
     return this.http.get("http://localhost:3209/api/getProdById/" +id);
   }
 
-  updateProduct(product:ProductModel){
-    return this.http.put("http://localhost:3209/api/updateProduct"+ '/' +product._id,product);
+  // updateProduct(product:ProductModel){
+  //   return this.http.put("http://localhost:3209/api/updateProduct/" +product._id,product);
+  // }
+
+  updateProduct(prodId,prodName,prodPrice,prodDesc,prodImage,_id){
+
+    const obj = {
+      prodId:prodId,
+      prodName:prodName,
+      prodPrice:prodPrice,
+      prodDesc:prodDesc,
+      prodImage:prodImage
+    }
+    this.http.put("http://localhost:3209/api/updateProduct/"+_id,obj).subscribe(
+      (res)=>{
+        console.log('Done');
+        console.log(res);
+        console.log(obj);
+      }
+    )
+
   }
 
-  // updateProduct(prodId,prodName,prodPrice,prodDesc,prodImage,id){
-
-  //   const obj = {
-  //     prodId:prodId,
-  //     prodName:prodName,
-  //     prodPrice:prodPrice,
-  //     prodDesc:prodDesc,
-  //     prodImage:prodImage
-  //   }
-  //   this.http.put("http://localhost:3209/api/updateProduct/"+id,obj).subscribe(
-  //     (res)=>{
-  //       console.log('Done');
-  //     }
-  //   )
-
+  // updateProduct(product: ProductModel){
+  //   return this.http.put("http://localhost:3209/api/updateProduct" + '/' + product._id, product);
   // }
 
   deleteProduct(id){

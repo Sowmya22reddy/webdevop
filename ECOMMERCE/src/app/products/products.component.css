@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 .prodPrice{
     text-align: center;
 }
@@ -14,17 +18,17 @@
   clear: both;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     .col-md-4{
       width: 100%;
       display: block;
       margin-bottom: 20px;
     }
-  }
+  } */
 
   .thumbnail {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 5px;
+    /* padding: 5px; */
     text-align: center;
     background-color: #ffffff;
   }

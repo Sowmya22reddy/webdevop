@@ -13,7 +13,9 @@ var db = mongoose.connection;
 var app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+ app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded());
+ 
 
 app.post('/api/register',User.registerUser);
 app.post('/api/login',User.loginUser);

@@ -90,7 +90,8 @@ exports.updateProduct = function(req,res){
     Product.findById(req.params.id, function(err, prod){
 
         if (!prod)
-        return next(err);
+        // return next(err);
+        res.send("error:",err);
 
       else{
         prod.prodId = req.body.prodId;

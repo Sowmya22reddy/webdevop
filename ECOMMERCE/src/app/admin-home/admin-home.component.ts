@@ -32,19 +32,11 @@ export class AdminHomeComponent implements OnInit {
       prodImage:['',Validators.required]
   });
 
-  // this.authService.getProducts().subscribe(
-  //   (response) =>{
-  //     this.products = response;
-  //   }
-  // )
-
-//   this.route.params.subscribe(params => {
-//     this.authService.getProductsByID(params['id']).subscribe(res => {
-//       this.products = res;
-//   });
-// });
-  
-  
+  this.authService.getProducts().subscribe(
+    (response) =>{
+      this.products = response;
+    }
+  )
 
   }
 
@@ -72,6 +64,18 @@ export class AdminHomeComponent implements OnInit {
         console.log(error);
         
       }
+    )
+  }
+
+  deleteProduct(id){
+    this.authService.deleteProduct(id).subscribe(
+      (res) =>{
+        console.log('Deleted');
+        alert("product deleted");
+        // this.router.navigate(['/admin-home']);
+        window.location.reload();
+      }
+      
     )
   }
 

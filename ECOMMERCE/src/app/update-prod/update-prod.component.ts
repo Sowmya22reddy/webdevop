@@ -15,8 +15,9 @@ export class UpdateProdComponent implements OnInit {
   submitted = false;
   data;
 
-  // id = this.route.snapshot.params['id'];
-  product: any = {};
+  
+  product:ProductModel;
+  
 
   constructor(private formBuilder: FormBuilder,
               private authService:AuthService,
@@ -46,32 +47,17 @@ export class UpdateProdComponent implements OnInit {
 
   get f() { return this.update.controls; }
 
-  onSubmit(){
-    this.submitted = true;
-
-    // stop here if form is invalid
-
-    if (this.update.invalid) {
-        return;
-    }
-    alert('SUCCESS!! :-)\n\n');
-
-    this.authService.updateProduct(this.update.value)
-      .subscribe( data => {
-        console.log(data);
-        //this.router.navigate(['']);
-      });
-
-      // this.route.params.subscribe(params => {
-      // this.authService.updateProduct(params['id']);
-      // // let id = params['_id'];
-      // this.router.navigate(['/products']);
-      // });
-
-      
-    }
-    
   
   
+  updateProd(prodId,prodName,prodPrice,prodDesc,prodImage){
+
+    this.route.params.subscribe(params =>{
+      this.authService.updateProduct(prodId.value,prodName.value,prodPrice.value,prodDesc.value,prodImage.value,params['id']);
+      //this.router.navigate(['/products']);
+      console.log(this.product);
+      this.router.navigate(['/admin-home']);
+    })
+
+  }
 
 }

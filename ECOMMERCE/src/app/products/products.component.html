@@ -20,9 +20,9 @@
   <br><br>
 
 
-  <table *ngIf="products" class="container" style="max-width:30%;max-height:30%">
+  <table *ngIf="products" class="container">
     <tr class="row">
-      <td class="col-md-4" *ngFor="let product of products">
+      <td class="col-md-3" *ngFor="let product of products">
         <div class="thumbnail">
           <a href="">
             <img class="prodImage" src="{{product.prodImage}}">
@@ -40,7 +40,7 @@
           <div class="container">
             <div class="row">
          
-            <button class="glyphicon glyphicon-edit" [routerLink]="['/update-prod',product._id]"></button>
+            <button class="glyphicon glyphicon-edit" [routerLink]="['/update-prod',product._id]"></button> &nbsp;&nbsp;
             <button class="glyphicon glyphicon-trash" (click)="deleteProduct(product._id)"></button>
           </div>
         </div>
