@@ -1,0 +1,1834 @@
+MongoDB:
+
+MongoDB is a nosql database.
+
+Two types:
+
+ Sql - DBMS/ RDBMS
+Nosql
+
+
+SQL Databases:   Oracle, MySql, SQL Server etc.
+
+Structure:
+
+
+database->  tables ->  rows/ records
+
+Type of data:   Structured Data
+
+
+To interact with RDBMS, we need to write queries.
+
+
+Oracle:
+
+Create table Users(name varchar2(20), address varchar2(20));
+
+
+Insert into Users values(‘ram’,’hyderabad’);
+
+
+NoSQL Database:
+
+
+Structure:
+
+ database->  collections-> documents(records-> JSON)
+
+ Accepts structured and unstructured data.
+
+Easily scalable.
+
+MongoDB takes the support of Hadoop for fail-over situations
+
+To query the database, we need to use functions provided by mongodb.
+
+
+
+Tools of MongoDB:
+
+mongo-> client window/ cmd helps to interact with Database Server.
+
+Mongod ->  helps to invoke/ start MongoDB Database.
+
+Use RoboMongo to view the data in UI.
+
+Note: make sure you create a folder called data/db  , so that all the operation we do on the database will be stored in db folder.
+
+
+Windows:
+
+Set path for bin folder->  allow you to access mongo, mongod anywhere in the system.
+
+      2. Run the server:    mongod
+
+
+
+ db.col1.find().pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.find({"rent":4500}).pretty();
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.insert({"name":"ramu","address":"hyderabad","rent":4500});
+WriteResult({ "nInserted" : 1 })
+> db.col1.find({"rent":4500}).pretty();
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{
+	"_id" : ObjectId("5c7def3f5e2e98cf4de8e341"),
+	"name" : "ramu",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.find({"rent":{$lt: 4000}}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({"rent":{$lte: 4000}}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({"rent":{$gte: 4000}}).pretty();
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{
+	"_id" : ObjectId("5c7def3f5e2e98cf4de8e341"),
+	"name" : "ramu",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.find({"rent":{$gte: 3000,$lt:4000}}).pretty();
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({"rent":{$gte: 2000,$lt:4000}}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({$and:{"name":"seenu"}, {"address":"hyderabad"}}).pretty();
+2019-03-05T09:14:15.773+0530 E QUERY    [thread1] SyntaxError: invalid property id @(shell):1:37
+> db.col1.find({$and:[{"name":"seenu"},{"address":"hyderabad"}]}).pretty();
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({$and:[{"name":"seenu"},{"address":"hyderaba"}]}).pretty();
+> db.col1.find({$or:[{"name":"seenu"},{"address":"hyderaba"}]}).pretty();
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({"rent":{$not: {$gt:3000}}}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+> db.col1.find({"rent":{$not: {$gt:3000}}}).pretty().count();
+3
+> db.col1.updateOne({"address":"hyderabad"},{$set: {"rent":1000}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 2000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{
+	"_id" : ObjectId("5c7def3f5e2e98cf4de8e341"),
+	"name" : "ramu",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.updateMany({"address":"hyderabad","rent:{$lt:3000}"},{$set: {"rent":1000}});
+2019-03-05T09:23:52.303+0530 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:59
+> db.col1.updateMany({"address":"hyderabad","rent":{$lt:3000}},{$set: {"rent":1000}});
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 1 }
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{
+	"_id" : ObjectId("5c7def3f5e2e98cf4de8e341"),
+	"name" : "ramu",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+> db.col1.replaceOne({"name":"ramu"},{"rent":100});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{ "_id" : ObjectId("5c7def3f5e2e98cf4de8e341"), "rent" : 100 }
+> db.col1.replaceOne({"name":"rakkk"},{"rent":100});
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+> db.col1.replaceOne({"name":"rakkk"},{"rent":100},{upsert:true});
+{
+	"acknowledged" : true,
+	"matchedCount" : 0,
+	"modifiedCount" : 0,
+	"upsertedId" : ObjectId("5c7df35bf26884a53d945ac4")
+}
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{
+	"_id" : ObjectId("5c7deef65e2e98cf4de8e33f"),
+	"name" : "srikanth",
+	"address" : "hyderabad",
+	"rent" : 5000
+}
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{ "_id" : ObjectId("5c7def3f5e2e98cf4de8e341"), "rent" : 100 }
+{ "_id" : ObjectId("5c7df35bf26884a53d945ac4"), "rent" : 100 }
+> db.col1.replaceOne({"name":"rakkk"},{"rent":100},{upsert:false});
+{ "acknowledged" : true, "matchedCount" : 0, "modifiedCount" : 0 }
+> db.col1.replaceOne({"name":"srikanth"},{"rent":100},{upsert:false});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.col1.find({}).pretty();
+{
+	"_id" : ObjectId("5c7deece5e2e98cf4de8e33c"),
+	"name" : "ravi",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deedd5e2e98cf4de8e33d"),
+	"name" : "rakesh",
+	"address" : "hyderabad",
+	"rent" : 1000
+}
+{
+	"_id" : ObjectId("5c7deee75e2e98cf4de8e33e"),
+	"name" : "seenu",
+	"address" : "hyderabad",
+	"rent" : 3000
+}
+{ "_id" : ObjectId("5c7deef65e2e98cf4de8e33f"), "rent" : 100 }
+{
+	"_id" : ObjectId("5c7def075e2e98cf4de8e340"),
+	"name" : "raj",
+	"address" : "hyderabad",
+	"rent" : 4500
+}
+{ "_id" : ObjectId("5c7def3f5e2e98cf4de8e341"), "rent" : 100 }
+{ "_id" : ObjectId("5c7df35bf26884a53d945ac4"), "rent" : 100 }
+> cls
+
+> use crud
+switched to db crud
+> db;
+crud
+> db.users.insertOne({"name":"ravikumar","salary":30000,"designation":"developer"});
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5c7dffb65e2e98cf4de8e342")
+}
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 30000,
+	"designation" : "developer"
+}
+> db.users.insertOne([{"name":"rajkumar","salary":450000,"designation":"senior developer"},{"name":"srikanth","salary":"60000","designation":"manager"});
+... 
+... 
+> 
+> db.users.insertOne(
+... [{"name":"ravikumar","salary":40000,"designation":"senior developer"},
+...     {"name":"srikanth","salary":50000,"designation":"consultant"}]
+... );
+2019-03-05T10:22:16.244+0530 E QUERY    [thread1] Error: operation passed in cannot be an Array :
+Bulk/addToOperationsList@src/mongo/shell/bulk_api.js:613:1
+Bulk/this.insert@src/mongo/shell/bulk_api.js:659:20
+DBCollection.prototype.insertOne@src/mongo/shell/crud_api.js:248:5
+@(shell):1:1
+> db.users.insertMany( [{"name":"ravikumar","salary":40000,"designation":"senior developer"},     {"name":"srikanth","salary":50000,"designation":"consultant"}] );
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5c7e00a65e2e98cf4de8e343"),
+		ObjectId("5c7e00a65e2e98cf4de8e344")
+	]
+}
+> db.users.insert( [{"name":"kiran","salary":60000,"designation":"senior developer"},     {"name":"rajesh","salary":90000,"designation":"senior consultant"}] );
+BulkWriteResult({
+	"writeErrors" : [ ],
+	"writeConcernErrors" : [ ],
+	"nInserted" : 2,
+	"nUpserted" : 0,
+	"nMatched" : 0,
+	"nModified" : 0,
+	"nRemoved" : 0,
+	"upserted" : [ ]
+})
+> db.users.find({});
+{ "_id" : ObjectId("5c7dffb65e2e98cf4de8e342"), "name" : "ravikumar", "salary" : 30000, "designation" : "developer" }
+{ "_id" : ObjectId("5c7e00a65e2e98cf4de8e343"), "name" : "ravikumar", "salary" : 40000, "designation" : "senior developer" }
+{ "_id" : ObjectId("5c7e00a65e2e98cf4de8e344"), "name" : "srikanth", "salary" : 50000, "designation" : "consultant" }
+{ "_id" : ObjectId("5c7e00f85e2e98cf4de8e345"), "name" : "kiran", "salary" : 60000, "designation" : "senior developer" }
+{ "_id" : ObjectId("5c7e00f85e2e98cf4de8e346"), "name" : "rajesh", "salary" : 90000, "designation" : "senior consultant" }
+> db.users.find({}).pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 30000,
+	"designation" : "developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.find({"_id" : ObjectId("5c7e00f85e2e98cf4de8e346")}).pretty();
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.find({"name":"kiran"}).pretty();
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.find({"designation":"senior developer"}).count();
+2
+> db.users.find({"designation":"senior developer"}).pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.find({"salary":{$gt:50000}}).pretty();
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.find({"salary":{$gte:50000}}).pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000}}).pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000,key:1}}).pretty();
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "unknown operator: key",
+	"code" : 2,
+	"codeName" : "BadValue"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000,}}).sort();
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "Failed to parse: sort: undefined. 'sort' field must be of BSON type object.",
+	"code" : 9,
+	"codeName" : "FailedToParse"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000,}}).sort({"salary":-1});
+{ "_id" : ObjectId("5c7e00f85e2e98cf4de8e345"), "name" : "kiran", "salary" : 60000, "designation" : "senior developer" }
+{ "_id" : ObjectId("5c7e00a65e2e98cf4de8e344"), "name" : "srikanth", "salary" : 50000, "designation" : "consultant" }
+{ "_id" : ObjectId("5c7e00a65e2e98cf4de8e343"), "name" : "ravikumar", "salary" : 40000, "designation" : "senior developer" }
+> db.users.find({"salary":{$gte:40000,$lte:60000,}}).sort({"salary":-1}).pretty();
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000,}}).sort({"salary":1}).pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.find({"salary":{$gte:40000,$lte:60000},"designation":"senior developer"}).pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 30000,
+	"designation" : "developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.updateOne({"name":"ravikumar"},{$set:{"salary":35000,"designation":"senior developer"}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 35000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 40000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 50000,
+	"designation" : "consultant"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 90000,
+	"designation" : "senior consultant"
+}
+> db.users.updateMany({},{$set:{"salary":55000,"designation":"senior developer"}});
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e346"),
+	"name" : "rajesh",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+> db.users.replaceOne({"_id" : ObjectId("5c7e00f85e2e98cf4de8e346")},{"terminated":"yes"});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{ "_id" : ObjectId("5c7e00f85e2e98cf4de8e346"), "terminated" : "yes" }
+> clear
+2019-03-05T10:47:27.278+0530 E QUERY    [thread1] ReferenceError: clear is not defined :
+@(shell):1:1
+> cls
+
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{ "_id" : ObjectId("5c7e00f85e2e98cf4de8e346"), "terminated" : "yes" }
+> db.users.deleteOne({"terminated":"yes"});
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+> db.users.updateOne({"name":"kiran"}, {$set: {"salary":60000}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.users.updateOne({"name":"srikanth"}, {$set: {"salary":70000}});
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7dffb65e2e98cf4de8e342"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e343"),
+	"name" : "ravikumar",
+	"salary" : 55000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 70000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> db.users.deleteMany({"salary":{$lt: 60000}});
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.users.find().pretty();
+{
+	"_id" : ObjectId("5c7e00a65e2e98cf4de8e344"),
+	"name" : "srikanth",
+	"salary" : 70000,
+	"designation" : "senior developer"
+}
+{
+	"_id" : ObjectId("5c7e00f85e2e98cf4de8e345"),
+	"name" : "kiran",
+	"salary" : 60000,
+	"designation" : "senior developer"
+}
+> cls
+
+> use flipkart
+switched to db flipkart
+> show collections
+> db.products.insertMany([{
+...     "productId":101,
+...      "name": "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+...      "rating":4.3,
+...      "category":"men footwear",
+...       "subcategory":"shoes",
+...       "price":699,
+...        "color":"red",
+...        "specifications":{
+...         "Outer_Material": "Mesh",
+...         "Closure": "Lace-Ups"
+...        },
+...        "similar_products": [{"productid":900},
+...         {"productid":9002}]
+... },
+... {
+...     "productId":102,
+...      "name": "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+...      "rating":4.2,
+...      "category":"men footwear",
+...       "subcategory":"shoes",
+...       "price":499,
+...        "color":"green",
+...        "specifications":{
+...         "Outer_Material": "Mesh",
+...         "Closure": "Lace-Ups"
+...        },
+...        "similar_products": [{"productid":1900},
+...         {"productid":90022}]
+... },
+... {
+...     "productId":103,
+...      "name": "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+...      "rating":3.2,
+...      "category":"men footwear",
+...       "subcategory":"shoes",
+...       "price":699,
+...        "color":"green",
+...        "specifications":{
+...         "Outer_Material": "Mesh",
+...         "Closure": "Lace-Ups"
+...        },
+...        "similar_products": [{"productid":9100},
+...         {"productid":002}]
+... },
+... {
+...     "productId":104,
+...      "name": "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+...      "rating":3.3,
+...      "category":"men footwear",
+...       "subcategory":"sandals",
+...       "price":699,
+...        "color":"red",
+...        "specifications":{
+...         "Outer_Material": "Mesh",
+...         "Closure": "Lace-Ups"
+...        },
+...        "similar_products": [
+...             {"productid":10101},
+...             {"productid":92}
+...        ]
+... },
+... {
+...     "productId":105,
+...      "name": "crooks",
+...      "rating":1.0,
+...      "category":"men footwear",
+...       "subcategory":"sandals",
+...       "price":399,
+...        "color":"red",
+...        "specifications":{
+...         "Outer_Material": "Mesh"
+...        },
+...        "similar_products": [
+...         {"productid":90},
+...         {"productid":902}
+...        ]
+... },
+... {
+...     "productId":106,
+...      "name": "Lavie Women BLUE Flats",
+...      "rating":4.1,
+...      "category":"women footwear",
+...       "subcategory":"flipflops",
+...       "price":399,
+...        "color":"red",
+...        "similar_products": [
+...         {"productid":10},
+...         {"productid":2}
+...        ]
+... },
+... {
+...     "productId":107,
+...      "name": "London Steps Women Tan Flats",
+...      "rating":4.1,
+...      "category":"women footwear",
+...       "subcategory":"flipflops",
+...       "price":999,
+...        "color":"green",
+...        "similar_products": [{"productid":11100},
+...         {"productid":9222}]
+... }
+... 
+... ]);
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("5c7e081e5e2e98cf4de8e347"),
+		ObjectId("5c7e081e5e2e98cf4de8e348"),
+		ObjectId("5c7e081e5e2e98cf4de8e349"),
+		ObjectId("5c7e081e5e2e98cf4de8e34a"),
+		ObjectId("5c7e081e5e2e98cf4de8e34b"),
+		ObjectId("5c7e081e5e2e98cf4de8e34c"),
+		ObjectId("5c7e081e5e2e98cf4de8e34d")
+	]
+}
+> show collections
+products
+> db.products.find().pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e348"),
+	"productId" : 102,
+	"name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+	"rating" : 4.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 499,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 1900
+		},
+		{
+			"productid" : 90022
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e349"),
+	"productId" : 103,
+	"name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 9100
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"),
+	"productId" : 105,
+	"name" : "crooks",
+	"rating" : 1,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 399,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh"
+	},
+	"similar_products" : [
+		{
+			"productid" : 90
+		},
+		{
+			"productid" : 902
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34c"),
+	"productId" : 106,
+	"name" : "Lavie Women BLUE Flats",
+	"rating" : 4.1,
+	"category" : "women footwear",
+	"subcategory" : "flipflops",
+	"price" : 399,
+	"color" : "red",
+	"similar_products" : [
+		{
+			"productid" : 10
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34d"),
+	"productId" : 107,
+	"name" : "London Steps Women Tan Flats",
+	"rating" : 4.1,
+	"category" : "women footwear",
+	"subcategory" : "flipflops",
+	"price" : 999,
+	"color" : "green",
+	"similar_products" : [
+		{
+			"productid" : 11100
+		},
+		{
+			"productid" : 9222
+		}
+	]
+}
+> db.products.find({"category":"men footwear"});
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e347"), "productId" : 101, "name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 4.3, "category" : "men footwear", "subcategory" : "shoes", "price" : 699, "color" : "red", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 900 }, { "productid" : 9002 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e348"), "productId" : 102, "name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)", "rating" : 4.2, "category" : "men footwear", "subcategory" : "shoes", "price" : 499, "color" : "green", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 1900 }, { "productid" : 90022 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e349"), "productId" : 103, "name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 3.2, "category" : "men footwear", "subcategory" : "shoes", "price" : 699, "color" : "green", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 9100 }, { "productid" : 2 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"), "productId" : 104, "name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 3.3, "category" : "men footwear", "subcategory" : "sandals", "price" : 699, "color" : "red", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 10101 }, { "productid" : 92 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"), "productId" : 105, "name" : "crooks", "rating" : 1, "category" : "men footwear", "subcategory" : "sandals", "price" : 399, "color" : "red", "specifications" : { "Outer_Material" : "Mesh" }, "similar_products" : [ { "productid" : 90 }, { "productid" : 902 } ] }
+> db.products.find({"category":"men footwear"}).pretty().count();
+5
+> db.products.find({"category":"men footwear","subcategory":"sandals"}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"),
+	"productId" : 105,
+	"name" : "crooks",
+	"rating" : 1,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 399,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh"
+	},
+	"similar_products" : [
+		{
+			"productid" : 90
+		},
+		{
+			"productid" : 902
+		}
+	]
+}
+> db.products.find({"category":"men footwear"}).sort({"price":1});
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"), "productId" : 105, "name" : "crooks", "rating" : 1, "category" : "men footwear", "subcategory" : "sandals", "price" : 399, "color" : "red", "specifications" : { "Outer_Material" : "Mesh" }, "similar_products" : [ { "productid" : 90 }, { "productid" : 902 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e348"), "productId" : 102, "name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)", "rating" : 4.2, "category" : "men footwear", "subcategory" : "shoes", "price" : 499, "color" : "green", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 1900 }, { "productid" : 90022 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e347"), "productId" : 101, "name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 4.3, "category" : "men footwear", "subcategory" : "shoes", "price" : 699, "color" : "red", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 900 }, { "productid" : 9002 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e349"), "productId" : 103, "name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 3.2, "category" : "men footwear", "subcategory" : "shoes", "price" : 699, "color" : "green", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 9100 }, { "productid" : 2 } ] }
+{ "_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"), "productId" : 104, "name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)", "rating" : 3.3, "category" : "men footwear", "subcategory" : "sandals", "price" : 699, "color" : "red", "specifications" : { "Outer_Material" : "Mesh", "Closure" : "Lace-Ups" }, "similar_products" : [ { "productid" : 10101 }, { "productid" : 92 } ] }
+> db.products.find({"category":"men footwear"}).sort({"price":1}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"),
+	"productId" : 105,
+	"name" : "crooks",
+	"rating" : 1,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 399,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh"
+	},
+	"similar_products" : [
+		{
+			"productid" : 90
+		},
+		{
+			"productid" : 902
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e348"),
+	"productId" : 102,
+	"name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+	"rating" : 4.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 499,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 1900
+		},
+		{
+			"productid" : 90022
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e349"),
+	"productId" : 103,
+	"name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 9100
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+> db.products.find({"category":"men footwear"}).sort({"rating":-1}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e348"),
+	"productId" : 102,
+	"name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+	"rating" : 4.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 499,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 1900
+		},
+		{
+			"productid" : 90022
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e349"),
+	"productId" : 103,
+	"name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 9100
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"),
+	"productId" : 105,
+	"name" : "crooks",
+	"rating" : 1,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 399,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh"
+	},
+	"similar_products" : [
+		{
+			"productid" : 90
+		},
+		{
+			"productid" : 902
+		}
+	]
+}
+> db.products.find({"category":"men footwear","color":"red"}).sort({"rating":-1}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34b"),
+	"productId" : 105,
+	"name" : "crooks",
+	"rating" : 1,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 399,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh"
+	},
+	"similar_products" : [
+		{
+			"productid" : 90
+		},
+		{
+			"productid" : 902
+		}
+	]
+}
+> db.products.find({"rating": {$gte:4}}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e348"),
+	"productId" : 102,
+	"name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+	"rating" : 4.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 499,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 1900
+		},
+		{
+			"productid" : 90022
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34c"),
+	"productId" : 106,
+	"name" : "Lavie Women BLUE Flats",
+	"rating" : 4.1,
+	"category" : "women footwear",
+	"subcategory" : "flipflops",
+	"price" : 399,
+	"color" : "red",
+	"similar_products" : [
+		{
+			"productid" : 10
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34d"),
+	"productId" : 107,
+	"name" : "London Steps Women Tan Flats",
+	"rating" : 4.1,
+	"category" : "women footwear",
+	"subcategory" : "flipflops",
+	"price" : 999,
+	"color" : "green",
+	"similar_products" : [
+		{
+			"productid" : 11100
+		},
+		{
+			"productid" : 9222
+		}
+	]
+}
+> db.products.find({"rating": {$gte:4, $lte:3}}).pretty();
+> db.products.find({"rating": {$gte:3, $lte:4}}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e349"),
+	"productId" : 103,
+	"name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 9100
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+> db.products.find({"productid":104).pretty();
+... 
+... 
+> db.products.find({"productid":104}).pretty();
+> db.products.find({"productId":104}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+> db.products.find({"productId":104,"similar_products.1"}).pretty();
+2019-03-05T11:03:44.636+0530 E QUERY    [thread1] SyntaxError: missing : after property id @(shell):1:54
+> db.products.find({"name":/Walking/}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e347"),
+	"productId" : 101,
+	"name" : "Asian WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 4.3,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 900
+		},
+		{
+			"productid" : 9002
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e348"),
+	"productId" : 102,
+	"name" : "Asian Walking Shoes,Gym Shoes,Knit Sports Shoes,Training Shoes,Sports Shoes, Running Shoes For Men  (Navy, Blue)",
+	"rating" : 4.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 499,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 1900
+		},
+		{
+			"productid" : 90022
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e349"),
+	"productId" : 103,
+	"name" : "American WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.2,
+	"category" : "men footwear",
+	"subcategory" : "shoes",
+	"price" : 699,
+	"color" : "green",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 9100
+		},
+		{
+			"productid" : 2
+		}
+	]
+}
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+> db.products.find({"name":/African/}).pretty();
+{
+	"_id" : ObjectId("5c7e081e5e2e98cf4de8e34a"),
+	"productId" : 104,
+	"name" : "African WNDR-13 Training Shoes,Walking Shoes,Gym Shoes,Sports Shoes Running Shoes For Men  (Grey, Green)",
+	"rating" : 3.3,
+	"category" : "men footwear",
+	"subcategory" : "sandals",
+	"price" : 699,
+	"color" : "red",
+	"specifications" : {
+		"Outer_Material" : "Mesh",
+		"Closure" : "Lace-Ups"
+	},
+	"similar_products" : [
+		{
+			"productid" : 10101
+		},
+		{
+			"productid" : 92
+		}
+	]
+}
+
+
+
+
+
+workflow:
+
+
+create project:
+
+npm init
+
+
+Dependencies:
+
+1. express - APIs
+2. mongoose - bridge b/w express and mongodb
+3.mongodb - to work with MongoDB
+4. bodyparser- to read the input from the request.
+5. nodemon- to serve the changes in the server.
+
+installation:
+
+npm install --save express mongoose body-parser nodemon.
+
+create the server:
+
+
+
+

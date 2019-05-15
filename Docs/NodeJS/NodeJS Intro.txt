@@ -1,0 +1,54 @@
+Backend:
+
+ NodeJS-Environment to run ExpressJS Applications
+ ExpressJS/SailsJS-  urls- APIs- Web Services(RestFul  Web Services)
+ MongoDB- data
+
+
+
+Front End:   GUI +  User Interactivity
+
+Back End-  Data Processing-  Server Side Application
+
+
+MEAN Stack
+
+ M- MongoDB- Database
+E -  ExpressJS-  Used to create Server Side Application
+A/R-  Front End Application
+N- NodeJS-  Environment and Infra to run Server side application developed using ExpressJS.
+
+
+
+Front End
+
+
+Backend App
+
+                             Mr.Majnu -> GVK Mall -Banjara Hills- Screen-4 (2) -> 30 tickets->  
+
+
+      BMS -  26 Tickets - 2
+      EasyTickets - 28 Tickets - 2
+      Just Tickets - 26 Tickets
+      Easy Movies -  26 Tickets
+
+
+   Backend Application ->  (data) url-> gets available tickets -> database
+
+  (BMS, ET,JT,EM)FrontEnd->  url-> 
+
+
+
+
+
+
+NodeJS:
+
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine used to run JS on server side.
+
+Download link:https://nodejs.org/en/
+
+NodeJS is developed by Ryan.
+NodeJS is an runtime environment which provides infrastructure and modules to work with server side javascript applications.
+NodeJS is asynchronous and event-driven runtime engine.

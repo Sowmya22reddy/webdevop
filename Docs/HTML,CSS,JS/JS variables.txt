@@ -1,0 +1,97 @@
+Variables:
+
+Variables are the identifiers used to represent some data in the application.
+
+Syntax:
+
+ Var var_name= value;
+
+Ex:  var username=”ram@digitalync.com”;
+
+Types of variables:
+
+Local Variables:
+
+A variable created inside a function is known as Local Variable.
+Its called as local variable since its scope is with in the function, meaning, this variable can be accessed only inside the function.
+Ex:  function f1(){
+   var a=10;// local variable
+   console.log(a);
+}
+function f2(){
+   var b=20;//local variable
+   console.log(b);
+}
+f1();
+f2();
+console.log(a);//error
+console.log(b);//error
+
+
+
+Global Variables:
+A variable create outside any function is known as global variable.
+Global variables can be accessed by all the functions inside the file.
+Ex:
+ var username="ram@gmail.com";// global variable
+
+function f1(){
+console.log(username);
+username="ravi@digitallync.com";
+}
+function f2()
+{
+console.log(username);
+}
+function f3(){
+   console.log(username);
+}
+f1();
+f2();
+f3();
+
+ex:var a=10;// global variable
+function x(){
+   var a=90;//local variable
+   console.log(a);//90
+}
+x();
+console.log(a);//10 / 90
+function y(){
+var a=200;
+console.log(a);//200
+}
+y();//
+console.log(a);//
+
+
+Ex: var a=10;// global variable
+function x(){
+   var a=90;//local variable
+   console.log(a);//90
+   var a=300;
+   console.log(a);//300
+}
+x();
+console.log(a);//10
+
+// internal code
+
+var a;
+a=10;
+function x(){
+   var a;
+   a=90;
+   console.log(a);
+   a=300;
+   console.log(a);
+}
+x();
+console.log(a);
+
+Ex:
+var a;
+console.log(a);
+a=90;
+console.log(a);
+a=null;

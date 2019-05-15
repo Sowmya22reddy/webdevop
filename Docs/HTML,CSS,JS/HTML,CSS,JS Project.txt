@@ -1,0 +1,64 @@
+E-Commerce App:
+
+ UI:  html, css/  bootstrap.
+
+ Users:
+ 1. Admin
+ 2. Customer
+
+ Roles and Responsibilities:
+
+ Admin:
+
+ 1. Login:  email, password
+ 2. add products
+ 3. delete products
+ 4. edit products
+ note:
+ 1. Admin should not be capable of shopping.
+
+ 2. All the products data must be stored in localStorage.
+
+ Customer:
+
+ 1. Register- should be register with the following data,
+
+    username,password,emailid,mobile_number.
+
+    when user gets registered successfully, an email should be
+    sent to the user to verify the account.
+
+ 2.  forgot password: when user forgets password, should be able
+ to give emailid to get the password to the email.
+
+ 3.  view products.
+
+ 4.  like the products.
+
+ 5. review on the products.
+
+ 6. add/remove/edit products to the cart.
+
+ 7. checkout
+
+ 8. cash on delivery- address, emailid, mobile number..
+
+ 9. order placed.
+
+ 10. view orders.
+
+ 11. view purchased items.
+  12. seller's information.
+
+ 13. suggest products.
+
+ */
+
+
+ /*
+ workflow:
+
+ 1. homepage(login,signup, aboutus,products,offers)->login(emailid,password)
+ -> view products(by )-> add to cart -> ...> checkout
+
+ 2. forgot password ->

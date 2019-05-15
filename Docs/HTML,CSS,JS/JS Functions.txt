@@ -1,0 +1,84 @@
+function:  A function is a block of code which performs some operation / process some data to result an output.
+
+{
+
+// code
+
+}
+
+syntax:
+
+
+function function_name(arguments)
+{
+
+   //code
+}
+
+noet: function_name should be a verb.
+
+
+ex:
+
+var password="abcdefghi";// pwd must be atleast 8 characters.
+
+
+function checkValidity(inputPassword){
+
+    if(inputPassword.length >= 8){
+             console.log("password is valid");
+    }
+    else
+    {
+        console.log("password is invalid");
+    }
+
+}
+
+checkValidity("abcd");
+checkValidity(password);
+
+represent a function in 4 ways:
+
+1. function with parameters  and with return type.
+
+function add(firstNumber,secondNumber){
+   var result=firstNumber+secondNumber;
+   return result;
+}
+
+var res=add(10,20);// 30
+console.log(res);
+console.log(add(90,20));
+add(10,30);
+console.log(result);
+
+2. function without parameters and with return type.
+
+
+
+function getUsers(){
+   //return ["ram","laxman"];
+   return {"name":"aditya"};
+}
+
+console.log(getUsers());
+
+3. function with parameters and without return type.
+
+
+function add(a,b){
+   console.log(a+b);
+}
+
+add(10,20);
+
+
+4. function without parameters and without return type.
+
+var a=10,b=20;
+function display(){
+console.log(a);
+console.log(b);
+}
+display();

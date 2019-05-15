@@ -1,0 +1,1403 @@
+Angular:  It is a frontend MVC framework to develop Single Page Applications.
+
+
+Version History:
+
+AngularJS  -   JavaScript - version - 1
+
+Angular 2 -     TS
+
+Angular 4 -   TS
+
+Angular 5 -   TS
+
+ Angular 6 -   TS
+
+ Angular 7 -  TS
+
+
+Angular is supported by Angular-Cli
+
+
+To create a project:   ng new application_name
+
+
+To install a dependency in  dev environment:   npm install --save-dev  dependency_name
+
+To install a dependency in dev and prod env:   npm install --save  dependency_name
+
+
+Angular application is a collection of components.
+
+Component ->   A component is a typescript class that contains logic of the application and UI.
+
+
+Component ->  UI +  Logic to handle UI.
+
+
+Angular follows tree structure where the root component is AppComponent.
+
+
+Files in a component:
+
+TS
+HTML
+CSS
+Module file (optional)
+
+
+Command:  ng generate component home
+
+
+Angular follows MVC Architecture.
+
+
+M - Model -   Data
+
+V-  View  -   UI (TEMPLATE)
+
+C- Controller  (Component)-  Mediator btw M and V
+
+
+Template:
+
+
+app.component.ts:
+
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+   <h1>DigitalLync</h1>
+   
+   <h3>{{address}}</h3>
+
+ `,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     address="Gachibowli, Hyderabad";
+}
+
+
+
+
+
+Directives:
+
+app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ templateUrl: './app.component.html',
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     users=[
+        {
+           name: "Ravi kumar",
+           address: "Hyderabad"
+        },
+        {
+         name: "Krish kumar",
+         address: "Hyderabad"
+      },
+      {
+       name: "Kiran kumar",
+       address: "Hyderabad"
+
+    }
+
+     ]
+}
+
+
+App.component.html:
+
+<div *ngIf="users.length>0">
+
+ <h1>Users Details</h1>
+
+  <ul>
+    <li *ngFor="let user of users">{{user.name}} - {{user.address}}</li>
+  </ul>
+
+</div>
+
+
+Data and Events:
+
+Property Binding:
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+  <h1>Data and Events </h1> 
+
+ <input class="aligncenter" [type]='inputType'>
+
+ <img [src]="LOGO" />
+
+
+  `,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ LOGO = "https://www.planwallpaper.com/static/images/2015-wallpaper_111525594_269.jpg";
+ }
+/*
+
+html attribute->  type, value
+
+*/
+
+
+Attribute binding:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+ <table [border]='border' [width]='width'  height="100px">
+<tr>
+ <td [attr.colspan]="colspan">A+B</td>
+ </tr>
+ <tr>
+ <td>A</td>
+ <td>B</td>
+ <td>C</td>
+ </tr>
+</table>
+
+
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ border=2;
+width=30;
+colspan=3;
+
+}
+
+
+Class binding:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<button class="btn btn-success" [class.active]='isSendActive'>Send</button>
+<button class="btn btn-success" [class.active]='isCloseActive'>Close</button>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+isSendActive=false;
+isCloseActive=true;
+
+}
+
+
+Ex:
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+ 
+ <h1 class="redcolor" [class.cent]='isCenter'>DigitaLync</h1>
+ 
+ `,
+ 
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ isCenter=false;
+
+}
+
+
+Style Binding:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<button
+ [style.backgroundColor]="isActive == true ? 'black': 'red'"
+ [style.color]= "isActive == true? 'wheat': 'black'"
+ >login</button>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+   isActive=true;
+}
+
+
+Event binding:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<button  (click)="registerUser()">Register</button>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+    registerUser(){
+        alert("register user called");
+    }
+    onMouseOver(){
+        alert("you are on the button");
+    }
+}
+
+Event Filtering:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+Username:<input type="text" id="username" (keyup.enter)="dataAccept()">
+
+<button  (click)="registerUser()">Register</button>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+    registerUser(){
+        alert("register user called");
+    }
+    onMouseOver(){
+        alert("you are on the button");
+    }
+    dataAccept(){
+        alert("data accepted");
+    }
+}
+
+
+Two way binding:
+
+This is the process of combining event binding and property binding.
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<input [(ngModel)]="username"
+ type="text">
+{{username}}
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  username="digital";
+}
+
+app.module.ts:
+import {FormsModule} from '@angular/forms';
+
+@NgModule({
+
+imports:[
+
+	FormsModule
+
+]
+
+-------------------------------------------------------------------------------------
+
+Pipes:
+
+Pipes are used to format the data.
+
+Syntax: |
+
+Ex:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<h1>{{salary |  number}}</h1>
+<h1>{{name | uppercase}}</h1>
+<h1>{{address | lowercase}}</h1>
+<h1>{{companyname | titlecase}}</h1>
+<h1>{{description | titlecase}}</h1>
+<h1>{{dob | date: 'mediumTime'}}</h1>
+<h1>{{user | json}}</h1>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+   salary=10000;
+   name="ravikumar";
+   address="HYDERABAD";
+   companyname="digitallync";
+   description="java dotnet meanstack mernstack";
+   dob= new Date();
+   user={
+       name:"ram",
+       address:"hyderabad"
+   }
+}
+
+
+Creating own pipes:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<h1>{{data | summary}}</h1>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  data="Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.";
+}
+
+Summary.pipe.ts:
+
+import { PipeTransform, Pipe } from '@angular/core';
+
+@Pipe({
+ name: 'summary'
+})
+export class SummaryPipe implements PipeTransform{
+   transform(value:string, args?:any):any{
+       return value.substring(0,100)+"....."
+
+   }
+}
+
+
+Ex-2:
+
+summary.pipe.ts:
+import { PipeTransform, Pipe } from '@angular/core';
+
+@Pipe({
+ name: 'summary'
+})
+export class SummaryPipe implements PipeTransform{
+   transform(value:string, args?:any):any{
+     var arg= parseInt(args);
+
+      return value.substring(0,arg)+"....."
+
+   }
+}
+
+App.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-root',
+template: `
+<h1>{{data | summary: '10'}}</h1>
+`,
+styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  data="Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.";
+}
+
+Input Properties:
+
+app.component.ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+ <app-movie [movie]= 'movieData'></app-movie>
+ `,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ movieData={
+       title: "KGF",
+       actor: "Yash"
+ }
+}
+
+Movie.component.ts:
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+ selector: 'app-movie',
+ template: `
+ <h1>{{movie | json}}</h1>
+ `,
+ styleUrls: ['./movie.component.css']
+})
+export class MovieComponent  {
+
+ @Input()  movie;
+
+}
+
+Alias Name:
+
+App.component.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+ <app-movie [movie]= 'movieData'></app-movie>
+ `,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ movieData={
+       title: "KGF",
+       actor: "Yash"
+ }
+}
+
+
+Movie.component.ts:
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+ selector: 'app-movie',
+ template: `
+ <h1>{{movie_d | json}}</h1>
+ `,
+ styleUrls: ['./movie.component.css']
+})
+export class MovieComponent  {
+
+ @Input('movie')  movie_d;
+
+}
+
+Output Properties:
+
+Movie.component.ts:
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+ selector: 'app-movie',
+ template: `
+ <button (click)="send()">Send</button>
+ `,
+ styleUrls: ['./movie.component.css']
+})
+export class MovieComponent  {
+
+ @Output() message:EventEmitter<any>= new EventEmitter();
+   send(){
+     this.message.emit("Hello! I am from Movie Comp");
+   }
+}
+
+
+App.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-root',
+ template: `
+  <app-movie (message)="datarecv($event)"></app-movie>
+  {{movieData}}
+ `,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    movieData;
+
+ datarecv(data){
+   alert("hello");
+   console.log('data',data);
+      this.movieData=data;
+ }
+
+}
+--------------------------------------------------------------------------------------
+
+NGContent & NGContainer:
+
+app.component.ts:
+
+ import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  <app-child>
+
+  <div class="header">
+ 
+   <h1>Courses Page</h1>
+
+  </div>
+
+  <div class="courses">
+
+   <h2>Available courses</h2>
+ 
+    <ul>
+
+     <li *ngFor="let course of courses">{{course}}</li>
+     
+    </ul>
+
+
+  </div>
+  </app-child>
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     courses=["java","dotnet","mean stack"];
+}
+
+
+child.component.ts:
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+  
+   <h1>I am in child component</h1>
+
+   <div>
+
+   <ng-content select=".header"> </ng-content>
+
+   <ng-content select=".courses"> </ng-content>
+
+
+   </div>
+  
+  `,
+  styleUrls: ['./child.component.css']
+})
+export class ChildComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+
+
+ng-container:
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  <app-child>
+
+  <div class="header">
+ 
+   <h1>Courses Page</h1>
+
+  </div>
+
+  <ng-container class="courses">
+
+   <h2>Available courses</h2>
+ 
+    <ul>
+
+     <li *ngFor="let course of courses">{{course}}</li>
+     
+    </ul>
+
+
+  </ng-container>
+  </app-child>
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     courses=["java","dotnet","mean stack"];
+}
+
+
+Directives:
+
+Directives are like html attributes used to work with DOM.
+
+There are 3 types of directives,
+
+1. Components
+
+2. Structural - add or delete elements in DOM
+
+3. Attribute - used to modify the contents (data) in the DOM.
+
+
+Structural Directives:
+
+1. ngIf:  used to perform if statement condition w.r.t UI(template)
+
+
+ex-1:  
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+   <div *ngIf="messages.length > 0">
+
+    new messages,{{messages.length}}
+
+   </div>
+ 
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     messages=[
+       {sender: "ravi" , message: "attend meeting at 1 pm"},
+       {sender: "khan" , message: "work on python security"},
+       {sender: "kiran" , message: "attend meeting at 4 pm"}
+      ]
+
+    
+}
+
+
+ex-2:
+
+ngIf and else
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+   <div *ngIf="messages.length > 0 then x2 else x1">
+
+   </div>
+
+
+   <ng-template #x1>
+
+       <h1>No new Messages</h1>
+
+   </ng-template>
+
+   <ng-template #x2>
+
+     <h1>New Messages </h1>
+
+     <ul>
+           <li *ngFor="let message of messages">{{message.sender}} - {{message.message}}</li>
+     </ul>
+
+   </ng-template>
+ 
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+     messages=[
+       {sender: "ravi" , message: "attend meeting at 1 pm"},
+       {sender: "khan" , message: "work on python security"},
+       {sender: "kiran" , message: "attend meeting at 4 pm"}
+      ]
+    //messages=[]
+
+    
+}
+
+
+Hidden property: Hidden is an html property.
+
+
+ngSwitch Case:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  <div [ngSwitch]="choice">
+  <div *ngSwitchCase="'corejava'"> 
+  <h1>Selected Core Java</h1>
+  </div>
+  <div *ngSwitchCase="'java'"> 
+  <h1>Java</h1>
+  </div>
+  <div *ngSwitchCase="'mean'"> 
+  <h1>Mean</h1>
+  </div>
+  <div *ngSwitchDefault> 
+  <h1>Wrong Choice</h1>
+  </div>
+  </div>
+
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    
+  choice="java";
+
+    
+}
+
+
+----------------------------------------------------------
+ngFor:
+
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+   
+   
+      Enter Title:<input type="text" placeholder="title" [(ngModel)]="title">
+
+      Enter releaseDate:<input type="text" placeholder="releaseDate" [(ngModel)]="releaseDate">
+
+      <button (click)="addMovie()">Add Movie</button>
+
+
+    <ul>
+ 
+     <li *ngFor="let movie of movies">{{movie.title}}  {{movie.releaseDate}}</li>
+
+    </ul>
+
+
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+      title;
+      releaseDate;
+
+  
+   movies=[{
+     title:"title1",
+     releaseDate:  "release date 1"
+     
+   },
+   {
+    title: "title 2",
+    releaseDate: "release date 2"
+   },
+   {
+    title: "title 3",
+    releaseDate: "release date 3"
+  }];
+
+  addMovie(){
+    this.movies.push({title: this.title,releaseDate:this.releaseDate});
+    console.log(this.movies);
+  }
+
+
+}
+
+
+
+ngClass:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+   
+  <span class="glyphicon" 
+ [ngClass]= "{'glyphicon-star':isSelected, 'glyphicon-star-empty':!isSelected}">
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  isSelected=false;
+     
+
+}
+
+ngStyle:
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+   
+  <button 
+  [style.backgroundColor]="canSave? 'blue': 'black'"
+  [style.color]="canSave? 'red': 'yellow'"
+  >
+ Save
+  </button>
+
+  <button
+  [ngStyle]= "{'backgroundColor':canSave? 'blue': 'black','color': canSave? 'red': 'yellow'}"
+  >
+   Save
+  </button>
+ 
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+ canSave=true;
+     
+
+}
+
+
+Safe Traversal Operator:
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  {{movie?.title}} - {{movie?.actor}}
+
+  <button (click)="getMovie()">GetMovie </button>
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+     movie;
+
+     getMovie(){
+       // logic to get movie data
+       let moviedata= {"title":"KGF", "actor":"Yash"};
+       this.movie=moviedata;
+     }
+
+}
+
+
+custom directives:
+
+if.directive.ts:
+
+
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
+
+@Directive({ selector: '[myIf]' })
+export class IfDirective {
+  constructor(
+    private templateRef: TemplateRef<any>,
+    private viewContainer: ViewContainerRef
+    ) { }
+
+  @Input() set myIf(shouldAdd: boolean) {
+    if (shouldAdd) {
+      // If condition is true add template to DOM
+      this.viewContainer.createEmbeddedView(this.templateRef);
+    } else {
+     // Else remove template from DOM
+      this.viewContainer.clear();
+    }
+  }
+
+}
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+   <div *myIf="courses.length > 0">
+
+     <ul>
+      
+     <li *ngFor="let course of courses">{{course}}</li>
+
+     </ul>
+
+   </div>
+
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+    // courses= ["java","dotnet","mean stack"];
+    courses=[];
+
+
+}
+
+----------------------------------------------------------------------------
+Template Driven Forms:
+
+
+
+username validation:
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  <div>
+
+   Username: <input 
+              type="text" 
+              placeholder="username"
+              ngModel
+              #username="ngModel"
+              minlength="5"
+              maxlength="10"
+              required
+
+              >
+              <div *ngIf="username.touched && username.invalid">
+              
+                   <div *ngIf="username.errors.required"> <span> * Username Required </span> </div>
+                   <div *ngIf="username.errors.minlength"><span>* username should have atleast 5 chars </span>
+          
+                     
+
+              </div>
+
+  
+
+   </div>
+  
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'TempForms';
+}
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+  <div>
+   <form #f="ngForm" (ngSubmit)="register(f)">
+   Username: <input 
+              type="text" 
+              placeholder="username"
+              ngModel
+              #username="ngModel"
+              name="username"
+              minlength="5"
+              maxlength="10"
+              required
+
+              >
+              <div *ngIf="username.touched && username.invalid">
+              
+                   <div *ngIf="username.errors.required"> <span> * Username Required </span> </div>
+                   <div *ngIf="username.errors.minlength"><span>* username should have atleast 5 chars </span>
+              </div> 
+              
+              </div>
+              <br><br>
+
+              Password: <input 
+              type="password" 
+              placeholder="password"
+              ngModel
+              name="password"
+              #password="ngModel"
+              minlength="5"
+              maxlength="10"
+              required
+              >
+              <div *ngIf="password.touched && password.invalid">
+              <div *ngIf="password.errors.required"><span> * password Required </span> </div>
+              <div *ngIf="password.errors.minlength"><span>* password should have atleast 5 chars </span>
+         </div>
+         </div> <br><br>
+
+          
+         <select name="state" #state="ngModel" ngModel>
+
+             <option *ngFor="let state of states" value={{state}}>{{state}}</option>
+
+         </select>
+         <br>
+         <br>
+
+     Course:    <input type="radio" name="course" value="parttime" #course="ngModel" ngModel> part time
+
+     <input type="radio" name="course" value="full time" #course="ngModel" ngModel> full time
+
+          <input type="checkbox" name="tandc" #tandc= "ngModel" ngModel required> I agree to terms and conditions 
+
+          <button class="btn btn-primary" [disabled]="f.invalid">Register</button>
+          </form>
+
+
+
+  
+
+   </div>
+  
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ 
+   states=["Telangana","Andhra Pradesh", "Karnataka","Tamil Nadu"];
+
+  register(f){
+      console.log(f.value);
+  }
+}
+
+
+ngModelGroup: Creates and binds a FormGroup instance to a DOM element.
+
+
+import {Component} from '@angular/core';
+import {NgForm} from '@angular/forms';
+
+@Component({
+ selector: 'app-root',
+ template: `
+ <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+     <p *ngIf="nameCtrl.invalid">Name is invalid.</p>
+     <p *ngIf="addressCtrl.invalid">address is invalid.</p><br>
+  
+     Name:
+     <div ngModelGroup="name" #nameCtrl="ngModelGroup">
+       <input name="first" [ngModel]="name.first" minlength="2">
+       <input name="last" [ngModel]="name.last" required>
+     </div>
+     <br><br>
+    
+     Address:<div ngModelGroup="address" #addressCtrl="ngModelGroup">
+     <input name="city" [ngModel]="address.city" minlength="5" required>
+     <input name="state" [ngModel]="address.state" required minlength="2">
+   </div>
+  
+     <button>Submit</button>
+   </form>`,
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+ name = {first: 'Nancy', last: 'Drew'};
+
+ address={city:"hyderabad", state:"TS"};
+ onSubmit(f: NgForm) {
+   console.log(f.value);  // {name: {first: 'Nancy', last: 'Drew'}, email: ''}
+   console.log(f.valid);  // true
+ }
+ setValue() { this.name = {first: 'Bess', last: 'Marvin'}; }
+ }
+
+------------------------------------------------------------------------------------------
+
+Reactive Forms:
+
+app.component.html
+------------------
+
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {UsernameValidator} from './username.validator';
+import { PhonenoValidator } from './phoneno.validator';
+import { CodeValidator } from './code.validator';
+
+@Component({
+  selector: 'app-root',
+  template: `
+  
+
+  <form [formGroup]="form">
+
+  Username: <input type="text"
+
+  formControlName="username"
+  
+  placeholder="username">
+
+  <div *ngIf="username.touched && form.get('username').invalid">
+
+  <div *ngIf="username.errors.required">Username cannot be empty</div>
+
+  <div *ngIf="username.errors.minlength">username should be atleast 5 chars</div>
+
+  <div *ngIf="username.errors.maxlength">username cannnot exceed 10 chars</div>
+
+  <div *ngIf="username.errors.fieldValidator">Username should not include space and numbers</div>
+
+  </div>
+
+  <br>
+  <br>
+
+  Phone No:
+  
+  <input type="text" size="3"
+  formControlName="countrycode"
+  placeholder="code">
+
+  <div *ngIf="countrycode.touched && form.get('countrycode').invalid">
+
+  <div *ngIf="countrycode.errors.required">Country Code cannot be empty</div>
+
+  <div *ngIf="countrycode.errors.minlength">Country Code should be 2 digits</div>
+
+  <div *ngIf="countrycode.errors.maxlength">Country Code cannnot exceed 3 digits</div>
+
+  <div *ngIf="countrycode.errors.codeValidator">Country Code is Invalid</div>
+
+  </div>
+  
+  <br><br> &nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;
+
+  <input type="text"
+  formControlName="phoneno"
+  placeholder="phoneno">
+
+  <div *ngIf="phoneno.touched && form.get('phoneno').invalid">
+
+  <div *ngIf="phoneno.errors.required">Phone No. cannot be empty</div>
+
+  <div *ngIf="phoneno.errors.minlength">Phone No. should be 10 digits</div>
+
+  <div *ngIf="phoneno.errors.maxlength">Phone No. cannnot exceed 10 digits</div>
+
+  <div *ngIf="phoneno.errors.numValidator">Phone No. should not include space, chars & spl chars</div>
+
+  </div>
+
+  </form>
+
+  
+  `,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  
+
+  form= new FormGroup({
+     username: new FormControl('',[Validators.required, Validators.minLength(5),Validators.maxLength(10), UsernameValidator.fieldValidator]),
+     countrycode: new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(4),CodeValidator.codeValidator]),
+     phoneno: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10),PhonenoValidator.numValidator])
+    })
+
+   get username(){
+     return this.form.get('username');
+   }
+
+   get phoneno(){
+     return this.form.get('phoneno');
+   }
+
+   get countrycode(){
+    return this.form.get('countrycode');
+   }
+
+}
+
+username.validator.ts:
+
+import {ValidationErrors, AbstractControl} from '@angular/forms';
+
+export class UsernameValidator{
+
+static cannotHaveSpace(control:AbstractControl): ValidationErrors | null{
+
+       var username= control.value as string;
+
+       if(username.includes(" ")){
+             return  {cannotHaveSpace:true}
+       }
+       else
+       {
+           return null;
+       }
+
+}
+}
+
+app.module.ts:
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+---------------------------------------------------------------
+
+username.validator.ts
+---------------------
+
+Ex:
+import {ValidationErrors, AbstractControl, FormControl} from '@angular/forms';
+
+export class UsernameValidator{
+
+static fieldValidator(control:AbstractControl): ValidationErrors | null{
+
+       var username= control.value as string;
+
+       if(username.match(/\d/) || username.includes(" ") || username.match(/[a-z]/)){
+             return  {fieldValidator:true}
+       }
+       else
+       {
+           return null;
+       }
+
+}
+}
+
+--------------------------------------
+
+Phone No. Validator:
+-------------------
+
+import {ValidationErrors, AbstractControl, FormControl} from '@angular/forms';
+
+export class PhonenoValidator{
+
+static numValidator(control:AbstractControl): ValidationErrors | null{
+
+       var phoneno= control.value as string;
+
+       if(phoneno.match('[a-zA-Z]') || phoneno.includes(" ") || phoneno.match('[!@#$%^&.*]')){
+             return  {numValidator:true}
+       }
+       else
+       {
+           return null;
+       }
+
+}
+}
+-----------------------------------------------------------------------------------
+
+Country code validator:
+------------------------
+
+import {ValidationErrors, AbstractControl, FormControl} from '@angular/forms';
+
+export class CodeValidator{
+
+static codeValidator(control:AbstractControl): ValidationErrors | null{
+
+       var countrycode= control.value as string;
+
+       if(!countrycode.includes("+")|| countrycode.match('[a-zA-Z]') || countrycode.includes(" ") || countrycode.match('[!@#$%^&.*]')){
+             return  {codeValidator:true}
+       }
+       else
+       {
+           return null;
+       }
+
+}
+}
+
+-------------------------------------------------------------------------
+
+Asynchronous Operations:
+-----------------------
+
+
+
+
+

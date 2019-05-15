@@ -1,0 +1,25 @@
+1) UI - HTML,CSS,Bootstrap,Angular
+   Middleware - NodeJS, ExpressJS
+   Backend DB - MongoDB
+
+2) Pages required:
+   * Register 
+   * Login
+   * Forgot Password
+   * Home
+   * User Home
+   * AboutUs/Services
+   * Cart
+   * Product Detail 
+   * Checkout
+   * Payment Method page
+   * Payment Success/Order Placed
+   * Admin Add Products
+   * Admin Home
+   
+3) Register and login validations, forgot password validation
+
+4) Angular Security
+
+5) Login using admin credentials and customer/user credentials
+

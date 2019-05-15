@@ -1,0 +1,106 @@
+Object:
+
+An object is a real time entity with the following characterstics
+
+1. properties
+2. action
+
+ex: Employee
+
+properties: name,desg,yearsofexp,address,project
+action: development, handlecalls, testing etc.
+
+syntax:
+
+var obj_name= {
+   key:value,
+   key:value,
+   key: value
+}
+
+key-> should be unique and should be string
+
+value-> need not to be unique and can be number, boolean, object,array etc.
+
+ex:
+
+var employee={
+   name: "Kiran",
+   address: "Hyderabad",
+   languagesKnown:["english","tamil","telugu"],
+   isMarried: false,
+   age:27,
+   getFullDetails: function(){
+           console.log("complete details");
+   },
+   companyAddress: {
+                           city: "Hyderabad",
+                           state: "Telangana",
+                           country: "India"
+                   }
+}
+
+console.log(employee.name);
+console.log(employee.companyAddress.state);
+employee['project']= "Automation";
+console.log(employee.project);
+employee.getFullDetails();
+
+ex:
+
+<html>
+   <body>
+
+        <form>
+
+            <input type="text" id="username" placeholder="username">
+            <input type="password" id="password" placeholder="password">
+            <input type="email" id="email" placeholder="email">
+            <button onclick="storeData()">Submit</button>
+       
+        </form>
+        <script>
+              function storeData(){
+           var username=document.getElementById("username").value;
+           var password=document.getElementById("password").value;
+          var email=document.getElementById("email").value;
+          var userdetails={
+              username:username,
+              password:password,
+              email:email
+          }
+          alert(JSON.stringify(userdetails));
+       }
+
+        </script>
+
+   </body>
+</html>
+
+
+ex:  We can inherit one object from another by using Object.create()
+
+var address={
+    city:"hyderabad",
+    state:"telanagana",
+    country: "India"
+}
+var employee=Object.create(address);
+console.log(address);
+console.log(employee);
+console.log(employee.city);
+employee['name']="Ravikumar";
+employee['desg']="dev";
+console.log(employee);
+
+this: this refers to current object.
+
+
+var employ={// this => {name,address} -> this.name
+   name: "Kiran",
+   address: "Hyderabad",
+   getFullDetails: function(){
+           return this.name +"\t" + this.address;
+   }
+}
+console.log(employ.getFullDetails());

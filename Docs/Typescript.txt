@@ -1,0 +1,1320 @@
+Variables:
+
+A variable is used to refer the data.
+
+In TS, we have three types of variables.
+
+1. var:
+
+var is used to create local and global variables
+
+var a=100;// global variable
+
+function x(){
+   var b=200;// local variable
+   console.log(a);
+   console.log(b);
+}
+
+x();
+
+ex:
+
+function x(){
+   var a=10;
+   console.log(a);//10
+   if(a>2){
+       var a=100;
+       console.log(a);//100
+   }
+   console.log(a);//10
+}
+x();
+
+clear observation:
+
+function y(){
+   var a;
+   a=10;
+   console.log(a);//10
+   if(a>2){
+      a=100;
+       console.log(a);//100
+   }
+   console.log(a);//10
+}
+y();
+
+
+2. let:  let is used to create  block scoped variables.
+
+function x(){
+   let ab=90;// wrong usage
+   var a=100;
+   if(a>2){
+       let a=90;// block scoped variable
+       let b=0;// block scoped variable
+       console.log(a);
+       console.log(ab);
+   }
+   console.log(a);
+   console.log(ab);
+}
+x();
+
+ex:
+
+function a(){
+   if(10 == 10){
+       let ab=100;
+       console.log(ab);
+       if(0 == 0){
+          let b=90;
+          console.log(b);
+          console.log(ab);
+       }
+       console.log(ab);
+       console.log(b);// error
+   }
+}
+a();
+
+
+3. const: const is used to create constant values.
+
+const a=100;
+console.log(a);
+const INR='?';
+console.log(INR);
+
+Datatypes:
+
+1.string
+
+ex:
+
+var username:string="ravikumar";
+username=123;// error
+console.log(username);
+
+ex:
+
+var username:string="ravikumar";
+
+console.log(username.toUpperCase());
+
+2.boolean: used to specify true or false.
+
+var isDone:boolean;
+isDone=true;
+isDone=1;// ERROR
+console.log(isDone);
+3.number:
+
+ex:
+
+var age:number;
+age=21;
+console.log(age);
+
+
+
+4. array: In TS, arrays can be used to store more than one value
+in a variable.
+
+note: we can restrict an array to store only one type of value.
+
+ex:
+
+var userdata:string[]=["ram","ravi"];
+console.log(userdata.length);
+
+5.tuple:
+
+tuple is used to restrict an array to a size along with type.
+
+
+var userdata:[string,number | boolean];
+userdata=["abc",true];
+
+6.void:
+
+class A{
+   abc():void{
+
+   }
+}
+7.never:
+
+class A{
+   abc():never{
+      while(true){
+
+      }
+   }
+}
+8.null:
+
+class A{
+   abc():number | null{
+      if(10 == 10){
+          return 100;
+      }
+      else
+      {
+          return null;
+      }
+   }
+}
+
+ex:
+
+
+var x={name:"ram"};
+console.log(x);
+x=null;
+
+9.undefined:
+
+var x=undefined;
+x=100;
+console.log(x);
+
+10.any:
+var s:any=100;
+s="";
+s={};
+s=null;
+s=undefined;
+console.log(s);
+*/
+
+
+
+
+/*
+
+Object Oriented Programming:
+
+Object:  is a realtime entity which has state and action.
+
+It is the process of using realtime entities and converting them into
+programming objects to solve a problem.
+
+Ex: Product - Mobile
+
+ state(properties): name,price,brand,color,size.....
+ action: calling,bluetooth,messaging.....
+
+
+ class: A class is a blueprint or a design or a template of an object.
+
+
+ class Product{
+    name:string;
+    price:number;
+    brand:string;
+    color:string;
+    size:number;
+
+    calling(){
+         console.log("can call");
+    }
+    messaging(){
+         console.log("messaging");
+      }
+}
+// memory gets created for this product
+// a copy of variables and methods will be given to this object.
+var product1=new Product();
+product1.name="vivo 21";
+product1.brand="VIVO";
+product1.color="black";
+product1.size=5.2;
+product1.price=9000;
+console.log(product1);
+var product2 = new Product();
+product2.name = "vivo 22";
+product2.brand = "VIVO";
+product2.color = "red";
+product2.size = 5.2;
+product2.price = 19000;
+console.log(product2);
+
+If any langauge is object oriented, then it will have the following features,
+
+1. Inheritance
+2. Polymorphism
+3. Abstraction
+4. Encapsulation
+
+
+problem statement: create a program for basic calculator.
+
+class BasicCalc{
+  
+    add(firstNumber:number,secondNumber:number){
+        console.log(firstNumber+secondNumber);
+    }
+    sub(firstNumber:number,secondNumber:number){
+       console.log(firstNumber-secondNumber);
+    }
+    mul(firstNumber:number,secondNumber:number)
+    {
+       console.log(firstNumber*secondNumber);
+    }
+    div(firstNumber:number,secondNumber:number){
+       console.log(firstNumber/secondNumber);
+    }
+}
+
+var b=new BasicCalc();
+b.add(10,20);
+
+
+
+
+Inheritance:
+
+problem statement: create a program for scientific calculator.
+
+solution:
+
+class BasicCalc{
+  
+   add(firstNumber:number,secondNumber:number){
+       console.log(firstNumber+secondNumber);
+   }
+   sub(firstNumber:number,secondNumber:number){
+      console.log(firstNumber-secondNumber);
+   }
+   mul(firstNumber:number,secondNumber:number)
+   {
+      console.log(firstNumber*secondNumber);
+   }
+   div(firstNumber:number,secondNumber:number){
+      console.log(firstNumber/secondNumber);
+   }
+}
+class ScientificCalc extends BasicCalc{
+
+square(input:number){
+   console.log(input*input);
+}
+cube(input:number){
+   console.log(input*input*input);
+}
+}
+
+var sc=new ScientificCalc();
+sc.add(10,20);
+sc.square(10);
+
+Inheritance is the process where a class acquires resources(variables, methods, constructors etc) from
+other classes.
+
+* A class that is extended called as Super class.
+
+*A class extends other class known as Sub class.
+
+* A sub class can access its own resources and also super class resources where as
+super class can access only its resources.
+
+class A{// super class
+   a=10;
+}
+class B  extends A{// sub class
+   b=20;
+}
+var obj=new B();
+console.log(obj.a);
+console.log(obj.b);
+
+advantages:
+
+1. code reusability
+2. code maintainability
+
+Types of Inheritance:
+
+1. Single
+2. multiple
+3.multilevel
+4.hierarchical
+5. hybrid
+*/
+
+/*
+1. Single:
+
+class A{
+
+}
+class B extends A{
+
+}
+
+* In SI, a class extends exactly only one class.
+
+* A class which extends another class is called as Sub class.
+
+2. multiple:
+
+If a class extends more than one class.
+
+* TS does not multiple inheritance.
+
+REASON:
+
+class A{
+a=10;
+}
+class B{
+a=30;
+}
+class C extends A,B{
+
+}
+var x=new C();
+console.log(x.a);
+
+3.multilevel:
+
+* A class acts as sub class and also super class.
+
+class A{
+
+}
+class B extends A{
+
+}
+class C extends B{
+
+}
+
+4.hierarchical:
+
+This is opposite of Multiple.
+
+class A{
+
+}
+class B extends A{
+
+}
+class C extends A{
+
+}
+class D extends A{
+
+}
+
+5. hybrid:
+
+Any two combinations-  single+ multilevel or single+ hierachical.
+
+Constructor:
+
+A constructor is used to construct an object.
+
+* To create constructor, we need to use 'constructor' keyword.
+
+* If a class does not have a constructor, then compiler provides
+a default constructor.
+
+ex:
+
+class A{
+constructor(){
+   console.log("constructor called");
+}
+}
+var x=new A();
+
+Usage of Constructor:
+
+class Employee{
+    ename;// this.ename
+    eaddress;// this.eaddress
+    constructor(name,addr){
+        this.ename=name;
+        this.eaddress=addr;
+
+    }
+}
+
+var emp=new Employee("abc","abc");
+console.log(emp);
+var emp1= new Employee("xyz","abc");
+console.log(emp1);
+
+* Constructors cannot be inherited.
+
+class Super{
+  constructor(){
+      console.log("super class constructor");
+  }
+}
+class Sub extends Super{
+  constructor(){
+      super();
+  }
+}
+var x=new Sub();
+
+
+super with method:
+
+class Super{
+      m1(){
+          console.log("m1() in Super");
+      }
+}
+class Sub extends Super{
+      m2(){
+          console.log("m2() in Sub");
+      }
+      m1(){
+          super.m1();
+       console.log("m1() in Sub");
+      }
+}
+var x= new Sub();// m1(), m2()
+
+x.m1();
+x.m2();
+
+Polymorphism:
+
+* It is the process where an entity provides different features based on different inputs.
+
+* We acheive polymorphism using method overloading.
+
+* Method overloading is the process where a method provides
+different features based on different inputs.
+
+ex: Payment processing.
+
+Rules:
+
+1. method name must be same
+2. there should be a difference in number of arguments or type of arguments.
+
+class Register{
+   reg(username,password);
+   reg(username,password,email);
+   reg(username,password,email,mobilenumber);
+   reg(username,password,email?:any,mobilenumber?:any){
+       if(arguments.length == 2){
+           console.log(username);
+           console.log(password);
+       }
+       if(arguments.length == 3){
+           console.log(username);
+           console.log(password);
+           console.log(email);
+       }
+       if(arguments.length == 4){
+           console.log(username);
+           console.log(password);
+           console.log(email);
+           console.log(mobilenumber);
+       }
+   }
+}
+
+var r=new Register();
+r.reg("abc","abc");
+
+ex:
+
+class Payment{
+    pay(type:DebitCard);
+    pay(type:CashOnDelivery);
+    pay(type:any){
+      if(type instanceof DebitCard){
+            console.log(type);
+      }
+      if(type instanceof CashOnDelivery){
+          console.log(type);
+      }
+    }
+}
+class DebitCard{
+    cardNumber;
+    cvv;
+}
+class CashOnDelivery{
+    name;
+    address;
+}
+
+var debt= new DebitCard();
+debt.cardNumber=101010101;
+debt.cvv=1010;
+
+var cashOnDelivery=new CashOnDelivery();
+cashOnDelivery.address="hyderabad";
+cashOnDelivery.name="ram";
+
+var payment= new Payment();
+payment.pay(cashOnDelivery);
+
+Method Overiding:
+
+If sub class does not like the implementation of a method in super class, then
+it can overide the implementation of that method.
+
+class A{
+   m1(){
+       console.log("m1() in A");
+   }
+   m3(){
+       console.log("m3() in A");
+   }
+}
+class B extends A{
+   m2(){
+       console.log("m2() in B");
+   }
+   m3(){
+       console.log("m3() in B");
+   }
+}
+
+var b=new B();
+b.m3();
+
+Encapsulation:
+
+It is the process where data and its processing code is bundled together into a single unit.
+
+ex: class
+
+class Employee{
+   name;// data
+   address;//data
+   getFullDetails(){// data processing
+       return this.name + "\t" + this.address;
+   }
+}
+var x=new Employee();
+x.name="Ravi";
+x.address="Hyderabad";
+console.log(x.getFullDetails());
+
+Advantages:
+
+1. Code Maintainability
+
+2. Security
+
+class A{
+   name="ravi";
+   address="hyd";
+   private pin=1010;
+}
+class B extends A{
+
+}
+var x=new B();
+console.log(x.name);
+console.log(x.address);
+console.log(x.pin);// error
+
+*/
+
+
+/*
+
+Type Inference:
+
+Type inference refers to the automatic detection
+of the data type of an expression in a programming language.
+
+
+var age=10;
+var isDone=false;
+var username="ravikumar";
+console.log(typeof age);
+console.log(typeof isDone);
+console.log(typeof username);
+
+
+type compatibility:
+
+It is the process of checking whether a type of data is compatible with any other type.
+
+
+class A{
+ m1(){
+     console.log("m1() in A");
+ }
+}
+class B{
+ a=20;
+ m1(){
+   console.log("m1() in B");
+}
+}
+
+var x:A;
+x=new B();
+x.m1();
+
+ex:
+
+interface A{
+   m1();
+}
+class B implements A{
+   m1(){
+       console.log("m1() in B");
+   }
+}
+class C{
+   m1(){
+       console.log("m1() in C");
+   }
+}
+class E{
+   m3(){
+       console.log("m3() in E");
+   }
+}
+class D{
+    m1(){
+        console.log("m1() in D");
+    }
+    m2(){
+        console.log("m2() in D");
+    }
+}
+
+
+var ref:A;
+ref= new B();// Compatible
+ref.m1();
+ref= new C();// Compatible
+ref.m1();
+//ref= new E();// Not Compatible
+
+ref=new D();// Compatible.
+
+ref.m1();
+
+
+structure compatibility:
+
+interface A{
+price:number;
+productId:number;
+}
+
+class Product{
+   price:number;
+  priceId:number;
+  sid:number;
+   productId:number;
+   constructor(productId,priceId){
+     this.priceId=priceId;
+     this.productId=productId;
+   }
+}
+
+var ref:A;
+ref=new Product(101,100);
+console.log(ref.price);//
+console.log(ref.productId);//
+console.log(ref);//
+
+ex:
+
+interface A{
+  price:number;
+  m1();
+}
+class B {
+price:number=10;
+m1(){
+   console.log("x()");
+}
+}
+var x:A;
+x=new B();
+console.log(x.price);
+x.m1();
+
+
+Ex:
+
+class A{
+
+}
+class B{
+
+}
+class C{
+
+}
+class D{
+   price:number=100;
+}
+class E{
+   price:number=399;
+}
+
+var x1:A;
+var x2:B;
+var x3:C;
+var x4:D;
+var x5:E;
+x1= new B();
+x1=new C();
+x1=new D();
+x1=new E();
+x4=new E();
+//x4=new A();// NC
+//x4=new B();
+//x4= new C();// NC
+x5=new D();
+//-> x5=new A();// NC
+
+Advanced Types:
+
+used to create user defined datattypes.
+
+Intersection Types:
+
+
+interface Product{
+   pid:number;
+   productPrice:number;
+   productDesc:string;
+}
+
+interface Cashback{
+   cashback:number;
+}
+
+interface Discount{
+   discount:number;
+}
+
+type festivals= Product & Cashback;
+
+var offers:festivals={
+   pid : 101,
+   productPrice:10000,
+   productDesc:"This is a basic product",
+   cashback:1000
+}
+
+type bigbillionSale= Product &  Discount & Cashback;
+
+console.log(offers.productPrice - offers.cashback);
+
+var offer:bigbillionSale={
+   pid : 101,
+   productPrice:10000,
+   productDesc:"This is a basic product",
+   cashback:1000,
+   discount:1000
+}
+console.log(offer.productPrice-(offer.cashback + offer.discount));
+
+*/
+
+
+union types:
+ symbol: |
+  ex:
+
+ var xa:number | boolean;
+xa=10;
+console.log(xa);
+xa=false;
+console.log(xa);
+
+ex:
+
+function myfun(x:number | boolean){
+
+}
+
+myfun(10);
+myfun(false);
+
+Type Guards:
+
+1. typeof
+2.instanceof
+
+typeof: used to check whether a variable belongs to a primitive or
+basic type.
+
+ex:
+
+var x1:string="10";
+console.log(typeof x1);
+
+instanceof:
+
+it is used to check whether an object belongs to a praticular class.
+
+
+class Test{
+
+}
+class AB{
+}
+var x11=new Test();
+console.log(x11 instanceof Test);
+console.log(x11 instanceof AB);
+
+ex:
+
+class Admin{
+
+}
+class Customer{
+
+}
+
+class Resources{
+   getResorces(type){
+        if(type instanceof Customer){
+            console.log("can buy items");
+            console.log("can change profile");
+            console.log("can review");
+        }
+        if(type instanceof Admin){
+            console.log("Add products");
+            console.log("Delete products");
+            console.log("update products");
+        }
+   }
+}
+
+var resources= new Resources();
+
+var admin= new Admin();
+var customer= new Customer();
+
+//resources.getResorces(admin);
+resources.getResorces(customer);
+
+nullable types:
+
+function checkEmail(email):string | null{
+   if(email.includes('@')){
+       return email;
+   }
+   else
+   {
+       return null;
+   }
+}
+
+console.log(checkEmail("ramgmail.com"));
+
+Type aliases:
+
+var x:number;
+var b:number;
+
+type aliasing:
+
+It is the process of using another name of a type. ex:  n for number, s for string.
+
+type n= number;// type aliasing
+
+var age:n;
+age=10;
+age="";// error
+
+String Literal Types:
+
+type account= "activated" | "deactived" | "InProgress";
+
+var user:account;
+
+user="activated";
+user="deactived";
+console.log(user);
+
+Numeric Literal Types:
+
+type status= 0 | 1 ;
+
+var ac:status;
+ac=0;
+console.log(ac);
+ac=1;
+
+console.log(ac);
+
+console.log(typeof ac);
+
+
+Abstraction: It is the process of providing required resources and avoiding the implementation
+of unnecessary details is known as Abstraction.
+
+we can achieve abstraction using interfaces and abstract classes.
+
+interface:
+
+An interface is a collection of unimplemented methods and uninitialized variables.
+
+
+interface Product{
+   productId:number;// uninitialized variable
+   productDetails();// unimplemented method
+}
+
+class ProductImpl implements Product{
+   productId:number=10;
+   productDetails(){
+       console.log("These are product details..");
+   }
+}
+
+var product:Product;
+
+product= new ProductImpl();
+
+product.productDetails();
+
+
+Keypoints:
+
+* An interface can extend another interface.
+
+
+interface ABC{
+   x1();
+}
+interface BBC extends ABC{
+   x2();
+}
+class CBE implements BBC{
+   x1(){
+       console.log("x1()");
+   }
+   x2(){
+       console.log("x2()");
+   }
+}
+
+var abc:BBC;
+abc= new CBE();
+abc.x1();
+abc.x2();
+
+* An interface can extend more than one interface.
+
+interface A{
+
+}
+interface B{
+
+}
+interface C{
+
+}
+interface D extends A,B,C{
+
+}
+
+* A class can implement more than one interface.
+
+interface A1{
+
+}
+interface B1{
+
+}
+interface C1{
+
+}
+class Msx implements A1,B1,C1{
+
+}
+
+
+* A class can extend another class and can implement interfaces.
+
+interface A1{
+
+}
+interface A2{
+
+}
+class A6{
+
+}
+class Impl extends A6 implements A1,A2{
+  
+}
+
+* We cannot create an object for interfaces since interface does not contain any implemented
+methods.
+
+* We cannot have a constructor in an interface because we cannot create an object for interface.
+
+*/
+
+
+
+
+/*
+
+Iterators:
+
+* There are two types of iterators,
+
+
+
+1. for of
+
+used to iterate over an array for the values.
+
+syntax:
+
+for(var/let variable_name of arrayname){
+
+}
+
+var users=["ram","kiran","jones","jack"];
+
+for(let user of users){
+   console.log(user);
+}
+
+2. for in
+
+to get the indexes of the values.
+
+var users=["ram","kiran","jones","jack"];
+
+for(let user in users){
+   console.log(user);
+}
+
+
+Generators/ Function Generators:
+
+function generators are used to execute a part of the function.
+
+function* myfun(){
+   console.log("line1");
+   console.log("line2");
+   yield "part-1";
+   console.log("line3");
+   console.log("line4");
+   yield "part-2";
+   console.log("line5");
+   console.log("line6");
+   yield "part-3";
+   console.log("line7");
+}
+
+var abc=myfun();
+console.log(abc.next());
+console.log(abc.next());
+console.log(abc.next());
+console.log(abc.next());
+
+Namespaces: Namespaces are used to group a set of classes or interfaces
+in to a unit.
+
+syntax:
+
+namespace namespace_name{
+   // classes
+   //interfaces
+   //variables
+   //functions
+}
+
+ex:
+
+namespace customer{
+  
+    export class Register
+    {
+         name;
+         pan;
+         account_number;
+          registeredUsers:Register[]=[];
+          constructor();
+          constructor(name,pan,account_number);
+           constructor(name?:string,pan?:string,account_number?:number){
+                this.name=name;
+                this.pan=pan;
+                this.account_number=account_number;
+               // this.registeredUsers.push(this);
+           }
+           registerDetails(registerdata:Register){
+                  this.registeredUsers.push(registerdata);
+           }
+           getAllRegisteredUsers(){
+              for(let user of this.registeredUsers){
+                  console.log(user);
+              }
+           }
+    }
+
+    export function getTandC(){
+        console.log("CONDITION 1");
+        console.log("CONDITION 1");
+        console.log("CONDITION 1");
+        console.log("CONDITION 1");
+    }
+
+    export var pincode=80000;
+
+}
+var reg1=  new customer.Register("ravikumar",10101,199999);
+var reg2=  new customer.Register("kiran",3330101,14499);
+var reg3=  new customer.Register("kanth",10646401,756575);
+var reg4=  new customer.Register("avinash",8980101,999874);
+
+var reg=new customer.Register();
+reg.registerDetails(reg1);
+reg.registerDetails(reg2);
+reg.registerDetails(reg3);
+reg.registerDetails(reg4);
+reg.getAllRegisteredUsers();
+
+customer.getTandC();
+console.log(customer.pincode);
+
+Accessing namespace of onefile in to another:
+
+
+namespace_1.ts:
+
+namespace customer{
+   export class Register{
+       register(){
+           console.log("register here");
+       }
+   }
+}
+
+namespace_2.ts:
+
+/// <reference path="namespace_1.ts" />
+
+var reg= new customer.Register();
+reg.register();
+
+compilation: tsc namespace_1.ts namespace_2.ts --out abc.js
+
+*/
+
+Modules:
+
+First.ts:
+
+export class MyClass{
+     constructor(){
+         console.log("MyClass constructor");
+     }
+}
+export interface A{
+
+}
+
+export function x(){
+    console.log("This is function x()");
+}
+
+Second.ts:
+
+import {MyClass,A} from './first';
+
+var m=new MyClass();
+
+class B implements A{
+  
+}
+
+
+Access Modifiers:
+
+Public:A public member can be accessed by all the classes irrespective whether they have any inheritance relationship.
+Protected: A protected member can be accessed only in the same class and its sub-classes with sub class object.
+Private: A private member can be accessed only in the same class.
+
+Ex:
+first.ts
+export class MyClass{
+  private a=10;
+  public b=20;
+  protected c=30;
+}
+
+class Test extends MyClass{
+   m1(){
+       let x= new Test();
+       console.log(x.b);
+       console.log(x.c);
+       //console.log(x.a);-> error
+   }
+}
+
+var s= new Test();
+s.m1();
+
+Second.ts:
+
+import {MyClass} from './first';
+
+var n= new MyClass();
+console.log(n.b);
+
+
+Symbols:
+
+Symbols are another datatype which is used similar to primitive types
+like number,boolean, array etc...
+
+* It is introduced in ES6.
+
+* The main advantage of Symbol is, it provides us a unique address which can be
+used in an object.
+
+*/
+
+var a= 10;
+var b= 10;
+var a1=Symbol("key");
+var a2=Symbol("key");
+
+console.log(a === b);
+console.log(a1 === a2);
+
+var x={
+   [a1]: "hello",
+   [a2]: "hey"
+}
+console.log(x);
+
+
+Generics are used for Type Safety:
+
+
+
+function identity<T>(arg: T): T {
+   return arg;
+}
+
+class Test{
+
+}
+
+console.log(identity<Number>(100));
+console.log(identity<String>("s"));
+console.log(identity<Test>(new Test()));

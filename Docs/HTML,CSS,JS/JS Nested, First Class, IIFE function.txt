@@ -1,0 +1,35 @@
+Nested Function:  A function inside another function is known as Nested function.
+
+function outer(){
+         var a=100;// local variable
+         function inner(){// local function or nested function
+               var b=90;
+               console.log(a);
+               console.log(b);
+         }
+         inner();
+ }
+
+
+outer();
+
+first class function:  If a function takes another function as a parameter, then it is called as
+first class function.
+
+ex:
+
+function myfun(a){
+  a();
+}
+
+var m=function(){console.log("I am function expression")};
+
+myfun(m);
+
+IIFE:  Immediately Invoked Function Expression
+
+A function gets automatically invoked when the script gets loaded.
+
+(function(){
+   console.log("I am test function");
+})();

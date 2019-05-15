@@ -1,0 +1,37 @@
+jump statements:
+
+break: is used to come out of a loop or a block.
+
+function myfunction(){
+   while(10 == 10){
+       console.log(10);
+       break;
+   }
+   console.log("myfunction");
+
+}
+myfunction();
+
+return: is used to come out of a function.
+
+function myfunction(){
+ 
+   if(10 == 10){
+       console.log(10);
+       return;
+   }
+   console.log(100);
+}
+myfunction();
+
+continue:
+
+it is used to skip an iteration.
+
+
+for(var x=1;x<=10;x++){
+   if(x == 3){
+       continue;
+   }
+   console.log(x);
+}

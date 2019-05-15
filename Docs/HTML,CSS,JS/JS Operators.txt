@@ -1,0 +1,130 @@
+Operators:  An operator is a special symbol or a keyword that provides a functionality
+with the help of operands.
+
+ex:  + -> operator
+
+10+20-> 30
+
++ -> operator
+10,20-> operands
+
+Types of Operators:
+
+Arithmetic Operators:
+
++   Addition
+-   Subtraction
+*   Multiplication
+/   Division
+%   Modulus (Division Remainder)
+++  Increment
+--  Decrement
+
+ex:
+
+console.log(10+20);
+console.log(10-20);
+console.log(10*20);
+console.log(10/20);
+console.log(10%20);
+var a=20;
+console.log(a++);
+console.log(a);
+console.log(++a);
+console.log(a--);
+console.log(a);
+console.log(--a);
+
+Assignment Operators:
+
+=   x = y   x = y
++=  x += y  x = x + y
+-=  x -= y  x = x - y
+*=  x *= y  x = x * y
+/=  x /= y  x = x / y
+%=  x %= y  x = x % y
+
+ex:var x=10;
+console.log(x+=10);// x= x+10=> 10+10
+console.log(x-=10);
+console.log(x*=10);
+
+
+Comparison Operators:
+
+==  equal to
+=== equal value and equal type
+!=  not equal
+!== not equal value or not equal type
+>   greater than
+<   less than
+>=  greater than or equal to
+<=  less than or equal to
+?   ternary operator
+
+ex:
+
+
+var a=10;
+var b=20;
+var c="10";
+console.log(a == b);
+console.log(a == c);
+console.log(a === c);
+console.log(a != b);
+console.log(a>b);
+console.log(a<b);
+
+ternary operator:
+
+syntax:
+
+test-condition? block1: block2;
+
+if test-condition is true, then block1 gets executed.
+
+if test-condition is false, block2 gets executed.
+
+ex:  var a=100;
+var b=200;
+
+var result= a>b? "a is greater than b": "a is less than b";
+console.log(result);
+
+JavaScript Logical Operators:
+
+&&  logical and
+||  logical or
+!   logical not
+ex:  console.log(10 < 20 && 10 > 5);
+console.log(10 > 20 && 10 > 5);
+console.log(10 < 20 && 10 < 5);
+console.log(10 < 20 || 10 < 5);
+console.log(10 > 20 || 10 < 5);
+console.log(!(10>20));
+
+JavaScript Type Operators
+typeof, instanceof
+
+typeof: used to check the type for primitives
+
+instanceof: used to check whether an object is an instance of a particular object.
+
+ex:  var a=10;
+
+console.log(typeof a == "number");
+
+var x={};
+console.log(x instanceof Object);
+
+function Employee(){
+
+}
+function Admin(){
+
+}
+var emp=new Employee();
+
+var admin= new Admin();
+
+console.log(emp instanceof Admin);

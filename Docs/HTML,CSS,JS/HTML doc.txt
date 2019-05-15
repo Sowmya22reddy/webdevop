@@ -1,0 +1,68 @@
+HTML: Hypertext Markup Language
+
+Markup Language:  Its a collection of tags.
+
+Tag:  A tag is a keyword which is enclosed in angular brackets used to design some UI.
+
+EX:  <video>
+
+HTML is used to describe web pages.
+
+Structure:
+
+<html>
+
+          <head>
+
+         </head>
+  
+          <body>
+
+         </body>
+
+</html>
+
+Ex: <html>
+
+          <head>
+
+            <!--
+
+             1.  title
+             2.  favicon
+             3. refer css files
+             4. add JS files
+             5. add JS Code
+             6. add internal styles
+             7. add meta data(info to the browser)
+
+            -->
+
+           <title>First Web Page</title>
+           <link rel="shortcut icon" type="image/png" href="https://media.glassdoor.com/sqll/1725178/digital-lync-squarelogo-1502865489060.png"/>
+            <!-- <meta http-equiv="refresh" content="4"> -->
+         </head>
+  
+          <body>
+            <!--
+                  1. add content
+                  2.paragraphs and so on..
+
+            -->
+            <h1 style="text-align: center;color: wheat;background-color: black">DigitalLync</h1>
+
+            <video controls autoplay>
+                    <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4">
+                 
+             </video>
+
+             <video width="320" height="240" controls autoplay>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="https://www.w3schools.com/html/movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                  </video>
+                  
+
+         </body>
+
+</html>

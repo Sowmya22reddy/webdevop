@@ -1,0 +1,27 @@
+<html>
+<body>
+<table>
+<tr>
+  <td>Bruschetta con Crema di Agliotoa</td>
+  <td>
+    <input type="text" value="" name="QTY" id="QTY" onKeyUp="multiply()" />
+  </td>
+  <td>
+    <input type="text" name="PPRICE" id="PPRICE" value="8"/>
+  </td>
+  <td>
+    <input type="text" name="TOTAL" id="TOTAL" />
+  </td>
+</tr>
+</table>
+<script>
+function multiply() {
+  a = Number(document.getElementById('QTY').value);
+  b = Number(document.getElementById('PPRICE').value);
+  c = a * b;
+
+  document.getElementById('TOTAL').value = c;
+}
+</script>
+</body>
+</html>

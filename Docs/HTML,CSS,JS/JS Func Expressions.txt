@@ -1,0 +1,70 @@
+function expressions:
+
+
+
+*/
+
+
+// function test(a){
+//   console.log(a());
+
+// }
+
+// var myfun=function(){// function expression
+//     return "I am a function expression";
+// }
+
+// test(myfun);
+
+
+// Swiggy:  coupoun: 30%off, Rs. 50 off
+
+// function finalPrice(actualPrice,coupun){
+//     var amount= actualPrice-coupun();
+//     console.log(amount);
+  
+
+// }
+
+// var coupoun_discount=function(){// function expression
+//    return 50;
+// }
+
+// var a_p=190;
+
+// finalPrice(a_p,coupoun_discount);
+
+
+// function scope:
+
+
+//   function f1(){
+  
+//       var a=10;// local variable
+//       console.log(a);// 10
+
+//        function f2(){ // inner function or nested function
+//           console.log("f2");
+//        }
+//        f2();
+
+//   }
+
+//   f1();
+
+
+// function f1(){
+  
+//     var a=10;// local variable
+//     console.log(a);// 10
+
+//      function f2(){ // inner function or nested function
+//         return 100;
+//      }
+  
+//      return f2();// 100;
+
+// }
+
+// var x=f1();// 100
+// console.log(x);

@@ -1,0 +1,83 @@
+Datatypes:
+
+Boolean
+Number
+String
+Arrays
+Object
+
+/*
+Boolean
+Number
+String
+Arrays
+object
+
+1.boolean: used to represent true or false.
+
+var isDone=false;
+console.log(isDone);
+console.log(typeof isDone);
+
+2.number
+
+var age=20;
+console.log(age);
+console.log(typeof age);
+var rating=4.3;
+console.log(rating);
+console.log(typeof rating);
+
+3. String:
+
+used to store a single character/ set of characters.
+
+var username='ram@digitallync.com';
+var emailId="ravi@c.com";
+var s='a';
+console.log(username);
+console.log(emailId);
+console.log(typeof username);
+console.log(s);
+console.log(typeof s);
+
+4. Arrays:
+
+are used to store a set of values in a single variable.
+
+var users=["ram","ravi","kiran","abc"];
+// note: Arrays in JS are unique compared to other lang.
+
+var userData=["ram",102,true,["abc",12]];
+console.log(users);
+console.log(userData);
+console.log(users[0]);
+console.log(userData[1]);
+console.log(users[10]);
+users[10]="1000";
+console.log(users[10]);
+console.log(users);
+
+object:
+
+syntax:
+
+{
+   key: value
+}
+
+var employee= {
+   name: "Ravi",
+   address: "Hyderabad",
+   designation:"Automation Engineer",
+   getData: function(){
+         return this.name + "\t" + this.address+"\t"+ this.designation
+   }
+}
+console.log(employee.name);
+console.log(employee.address);
+console.log(employee.designation);
+console.log(employee.getData());
+console.log(typeof employee);
+
+*/

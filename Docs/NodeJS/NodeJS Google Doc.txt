@@ -1,0 +1,671 @@
+Backend:
+
+ NodeJS-Environment to run ExpressJS Applications
+ ExpressJS/SailsJS-  urls- APIs- Web Services(RestFul  Web Services)
+ MongoDB- data
+
+
+
+Front End:   GUI +  User Interactivity
+
+Back End-  Data Processing-  Server Side Application
+
+
+MEAN Stack
+
+ M- MongoDB- Database
+E -  ExpressJS-  Used to create Server Side Application
+A/R-  Front End Application
+N- NodeJS-  Environment and Infra to run Server side application developed using ExpressJS.
+
+
+
+Front End
+
+
+Backend App
+
+                             Mr.Majnu -> GVK Mall -Banjara Hills- Screen-4 (2) -> 30 tickets->  
+
+
+      BMS -  26 Tickets - 2
+      EasyTickets - 28 Tickets - 2
+      Just Tickets - 26 Tickets
+      Easy Movies -  26 Tickets
+
+
+   Backend Application ->  (data) url-> gets available tickets -> database
+
+  (BMS, ET,JT,EM)FrontEnd->  url-> 
+
+
+
+
+
+/*
+----------------------------------------------------------------------------------------------
+
+NodeJS:
+
+Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine used to run JS on server side.
+
+Download link:https://nodejs.org/en/
+
+NodeJS is developed by Ryan.
+NodeJS is an runtime environment which provides infrastructure and modules to work with server side javascript applications.
+NodeJS is asynchronous and event-driven runtime engine.
+
+-------------------------------------------------------------------------------------
+Creating a server in NodeJS:
+
+// prefined modules- http
+// syntax:  require('module_name')
+
+var http=require('http');
+var server=http.createServer( function(request,response){
+   console.log(request.url);
+   var movie={
+       name: "KGF",
+       hero: "Rocky",
+       releaseYear:2018
+   }
+   response.end("<h1>hello world</h1>");
+});
+server.listen(9888, function() {
+   console.log("Server Started");
+});
+
+
+
+-----------------------------------------------------------------------------------------
+
+
+Express App:
+
+var express=require('express');
+var app=express();
+
+/*
+http methods:
+
+get
+post
+put
+delete
+
+*/
+app.get('/getUsers', function(req,res){
+   res.send({name:"DigitalLync", address:"Hyderabad"});
+});
+app.get('/getData', function(req,res){
+   res.send({username:"Ravi Kumar", address:"Hyderabad"});
+});
+
+app.listen(9000,function(){
+   console.log("server started");
+})
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+File System:
+
+To access files in OS, we need to use 'fs' module.
+
+fs module allows us to interact with file system and also,
+to perform the following operations,
+
+1. reading data
+2. writing data
+3. updating data
+4. creating files
+5. deleting files.
+
+1. reading data:
+
+var fs=require('fs');
+if(fs.existsSync('hello.html')){
+   fs.readFile('hello.html',(err,data) => {
+       console.log(data);
+       console.log(data.toString());
+   })
+}
+else
+{
+   console.log("file does not exist");
+}
+
+2. writing the data:
+
+
+appendFile: checks whether the file is available or not, if the
+file is not available, it creates a file and adds the data
+to the file. If the file is available, it appends the data.
+
+writeFile: checks whether the file is available or not,
+if the file is not available, it creates a file and add the data
+to the file. if the file is already available, it replaces the
+old data with new data.
+
+var fs= require('fs');
+fs.appendFile('tst.html','i am appending',(err) => {
+    if(err){
+        console.log(err);
+    }
+    else
+    {
+        console.log("data written");
+    }
+})
+
+fs.writeFile('tst.html','i am appending',(err) => {
+   if(err){
+       console.log(err);
+   }
+   else
+   {
+       console.log("data written");
+   }
+})
+
+deleting a file:
+
+If we want to delete a file, then we need to use unlink method.
+
+var fs= require('fs');
+fs.unlink('test.html', function() {
+   console.log("file deleted");
+})
+
+reading and writing to a file:
+
+var fs= require('fs');
+fs.readFile('hello.html', function(err,data){
+   var fileData=data.toString();
+   fs.writeFile('newfile.html',fileData ,function(err){
+     if(err){
+         console.log("error :"+err)
+     }
+     else
+     {
+         console.log("no error, file written");
+     }
+   });
+})
+
+Server file data via server:
+
+var http= require('http');
+var fs= require('fs');
+
+http.createServer(function(request, response){
+    fs.readFile('hello.html',(err,data) =>{
+        response.writeHead(200,{'content-type':'text/html'})
+       response.write(data.toString());
+       response.end();
+    })
+}).listen(9111, function(err){
+   if(err){
+       console.log(err);
+   }
+   else
+   {
+       console.log("server started");
+   }
+})
+
+
+// serving data using express
+
+var fs=require('fs');
+var express= require('express');
+var app= express();
+app.get('/homepage',function(request, response){
+  fs.readFile('hello.html', function(err,data){
+      if(err){
+          console.log('error',err);
+      }
+      else
+      {
+         
+          response.writeHead(200,{'content-type':'text/html'});
+          response.end(data.toString());
+      }
+  })
+}).listen(8888);
+*/
+
+----------------------------------------------------------------------------------------------
+
+net module:
+
+net module is basically used for networking applications.
+
+var net= require('net');
+
+
+Server.js:
+
+var net = require('net');
+var server = net.createServer(function(connection) {
+  console.log('client connected');
+ 
+  connection.on('end', function() {
+     console.log('client disconnected');
+  });
+ 
+  connection.write('Hello World!\r\n');
+  connection.pipe(connection);
+});
+
+server.listen(8080, function() {
+  console.log('server is listening');
+});
+
+
+client.js:
+
+var net = require('net');
+var client = net.connect({port: 8080}, function() {
+  console.log('connected to server!'); 
+});
+
+client.on('data', function(data) {
+  console.log(data.toString());
+  client.end();
+});
+
+client.on('end', function() {
+  console.log('disconnected from server');
+});
+
+-----------------------------------------------------------------------------------------------------------------------
+
+ExpressJS:
+
+NOTE:  npm init
+
+     Npm install --save express nodemon
+
+var express= require('express');
+var app= express();
+app.get('/getUsers',function(request,response){
+
+   console.log("req headers",request.headers);
+   response.writeHead(200,{"content-type":'text/html'});
+   response.write('<h1>This is my first express application</h1>');
+});
+app.listen(9191, function(){
+   console.log("server started on 9191");
+})
+
+
+
+
+
+Making post calls:
+
+var express= require('express');
+var app= express();
+var body_parser= require('body-parser');
+
+//app.use("middle ware config");
+
+// Returns middleware that only parses urlencoded bodies
+
+app.use(body_parser.urlencoded({ extended: false }))
+
+// Returns middleware that only parses json
+app.use(body_parser.json())
+
+
+
+app.get('/getUsers',function(request,response){
+
+   console.log("req headers",request.headers);
+   response.writeHead(200,{"content-type":'text/html'});
+   response.write('<h1>This is my first express application</h1>');
+});
+
+app.post('/addUser', function(request,response){
+     console.log(request.body);
+});
+
+
+
+
+
+
+app.listen(9191, function(){
+   console.log("server started on 9191");
+})
+
+----------------------------------------------------------------------------------------------------------------------
+
+Routers:
+
+
+
+route.js
+
+var express= require('express');
+
+var router=express.Router();
+
+router.get('/getUsers', function(request, response){
+   response.setHeader('content-type','application/json');
+   response.send(JSON.stringify([{name:"abc"},{name:"xyz"}]))
+});
+
+router.post('/addUser', function(request,response){
+        var username=request.body.username;
+       var password= request.body.password;
+        var emailid=request.body.emailid;
+        var mobilenumber=request.body.mobilenumber;
+
+        var userdata={
+            username:username,
+            password:password,
+            emailid:emailid,
+            mobilenumber:mobilenumber
+        }
+       response.setHeader('content-type','application/json');
+       response.send(JSON.stringify(userdata));
+});
+
+router.get('/products/:productid', function(request, response){
+         var productid=request.params.productid;
+         console.log(productid);
+         response.setHeader('content-type','application/json');
+
+         if(productid==101){
+            
+response.send(JSON.stringify({"pname": "puma shoes"}));
+return;
+         }
+         if(productid==102){
+           response.send(JSON.stringify({"pname": "nike shoes"}));
+           return;
+         }
+         else
+         {
+           response.send(JSON.stringify({"": ""}));
+         }
+})
+
+router.get('/products/shoes/women/:productid', function(request,response){
+   var productid=request.params.productid;
+         console.log(productid);
+         response.setHeader('content-type','application/json');
+
+         if(productid==101){
+            
+response.send(JSON.stringify({"pname": "puma shoes"}));
+return;
+         }
+         if(productid==102){
+           response.send(JSON.stringify({"pname": "nike shoes"}));
+           return;
+         }
+         else
+         {
+           response.send(JSON.stringify({"": ""}));
+         }
+})
+module.exports=router;
+
+Index.js:
+
+
+var express= require('express');
+
+var app= express();
+
+var routes=require('./routes.js');
+
+var bodyParser= require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json());
+
+app.use(routes);
+
+app.listen(9011, function(){
+   console.log("server started running!!");
+})
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Middleware:
+
+
+var express= require('express');
+
+var app= express();
+
+var requests=0;
+
+app.use(function(request,response, next){
+    requests++;
+     console.log("middleware 1 executed");
+     next();
+})
+app.use(function(request,response, next){
+   console.log("middleware 2 executed");
+   next();
+})
+
+app.get('/users', function(request,response){
+console.log("users request has come");
+ response.write("<h1>helo users!  we have got  :"+requests+"</h1>");
+ response.end();
+})
+
+app.listen(9000);
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+Template Engines:
+
+Template engines are used to provide UI in Express applications.
+ 
+    There are different types of template engines available, such as pug,ejs, handlebars etc…
+
+Pug Example:
+
+var express= require('express');
+var app=express();
+
+app.set('view engine', 'pug');
+
+app.get('/', function(request,response){
+   var data={
+       title: "Pug",
+        h1:  "This is pug example",
+        h2:  "we need to be very about indentation when we work with Pug",
+        h3: "Pug is not widely used, instead EJS is used"
+   }
+     response.render('index',data);
+})
+
+app.listen(9000);
+
+views/index.pug
+html
+   head
+       title=title
+   body
+       h1=h1
+       h2=h2
+       h3=h3
+
+
+Note: please install pug and nodemon.
+
+
+EJS:
+
+Index.js:
+
+var express= require('express');
+var app=express();
+var bodyparser= require('body-parser');
+
+app.use(bodyparser.urlencoded({ extended: false }))
+app.use(bodyparser.json());
+
+app.set('view engine', 'ejs');
+
+app.get('/',function(request, response){
+   response.render('pages/index',{error: ""});
+});
+
+app.post('/login', function(request,response){
+        var username=request.body.username;
+        var password=request.body.password;
+       if(username === "saikumar" && password ==="abcde")
+       {
+           response.render('pages/success', {username: username})
+       }
+       else
+       {
+           response.render('pages/index',{error: "username/password invalid"});
+       }
+})
+app.listen(9000);
+
+
+
+views/pages/index.ejs:
+
+<html>
+<head>
+   <h1>Embedded JavaScript</h1>
+   <h1><%= error %></h1>
+</head>
+<body>
+       <form action="/login" method="post">
+           Username: <input type="text" name="username">
+            Password <input type="password" name="password">
+           <input type="submit" value="login">
+           <button onclick="check()">Check</button>
+       </form>
+
+</body>
+</html>
+
+
+views/pages/success.ejs:
+
+<h1>You are successfully logged in!!</h1>
+
+<h1><%= username %></h1>
+
+-----------------------------------------------------------------------------------------------
+
+File upload:
+
+var express= require('express');
+var app= express();
+var formidable= require('formidable');
+var fs= require('fs');
+app.set('view engine','ejs');
+
+app.get('/', function(request,response){
+   response.render('index');
+})
+
+app.post('/fileupload', function(request,response){
+   console.log("I am in file upload API");
+   var form= new formidable.IncomingForm();
+   form.parse(request);
+
+   form.on('fileBegin', function (name, file){
+       file.path = __dirname + '/uploaded_files/' + file.name;
+   });
+
+   form.on('file', function (name, file){
+       console.log('Uploaded ' + file.name);
+   });
+
+   response.write('file uploaded');
+  response.end();
+
+     });
+app.listen(8888, function(){
+   console.log("server started running!!");
+});
+
+Nodemailer:
+
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+ service: 'gmail',
+ auth: {
+   user: 'acctest472@gmail.com',
+   pass: 'Test123@'
+ }
+});
+
+var mailOptions = {
+ from: 'acctest472@gmail.com',
+ to: 'sai@digital-lync.com,pranavlawrence40@gmail.com,sowmya22reddy@gmail.com,sharmasavithri7@gmail.com',
+ subject: 'Nodemailer Example',
+ text: 'I am from Nodemailer'
+};
+
+transporter.sendMail(mailOptions, function(error, info){
+ if (error) {
+   console.log(error);
+ } else {
+   console.log('Email sent: ' + info.response);
+ }
+});
+
+
+Streams:
+
+ReaderStream:
+
+var fs=require('fs');
+var data='';
+var readerStream=fs.createReadStream('index.html');
+
+readerStream.setEncoding('UTF8');
+
+readerStream.on('data', function(chunk){
+   data+=chunk;// data= data + chunk
+})
+
+readerStream.on('error', function(err){
+   console.log(err);
+});
+
+readerStream.on('end',function(){
+   console.log(data);
+});
+
+
+
+Writer Stream:
+
+var fs=require('fs');
+var data='hello how are you!!';
+var writeStream=fs.createWriteStream('test.txt');
+writeStream.write(data, function(err){
+   if(err){
+       console.log(err);
+   }
+   console.log("data written");
+})
+writeStream.end();
+
+
+
+
+

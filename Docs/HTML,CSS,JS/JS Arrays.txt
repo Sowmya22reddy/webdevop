@@ -1,0 +1,76 @@
+Arrays:
+
+An array is a linear data structure used to organize data in a proper format.
+
+syntax:
+
+ var arrayname=[];
+
+ ex:    var users=["abc","bc","cda"];
+
+ ex:  var data=[10,"abc",true,false,{name:"ram"}];
+
+console.log(data);
+
+note: Arrays in JS can store different types of data.
+
+* Arrays store the elements based on address which are technically called as index.
+
+index starts from 0.
+
+
+var users=["ram","kiran","ravi"];
+
+console.log(users[0]);
+users[3]="raj";
+console.log(users[3]);
+console.log(users);
+users[0]=20;
+console.log(users);
+
+
+ex: var likes=["user1","user2","user3","user4"];
+
+for(var index=0;index<likes.length;index++){
+      console.log(likes[index]);
+}
+console.log("-------------------------------------")
+
+likes.forEach(function(user){
+     console.log(user);
+});
+
+
+ex:
+
+var users=["user1","user2","user3"];
+users.push("user4");
+users.push("user5");
+users.push("user1");
+users.unshift("user9");
+console.log(users);
+var x=users.indexOf("user2");
+console.log(x);
+users.splice(x,1);
+console.log(users);
+
+
+adding an element at a specified index:
+
+var users = ['user1', 'user2', 'user3', 'user4'];
+
+users.splice(2, 0, 'usern');
+console.log(users);
+
+ex:
+
+
+var users = ['user1', 'user2', 'user3', 'user4'];
+
+console.log(users.includes("user1"));
+
+ex:  task:
+
+var data=["abc","xys",10,20,false,true,"hey"];
+
+*/

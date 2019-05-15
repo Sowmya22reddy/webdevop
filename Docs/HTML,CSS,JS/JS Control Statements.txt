@@ -1,0 +1,172 @@
+
+Control Statements:
+
+1. if- statement:
+
+syntax:
+
+if(test-condition){
+
+}
+
+ex:
+
+var isDone=false;
+if(isDone == true){
+   console.log("Leave for the day");
+}
+
+if-else:
+
+ex:
+
+var isDone=false;
+if(isDone)//   isDone == true
+{
+   console.log("Leave for the day");
+}
+else
+{
+   console.log("continue working!!");
+}
+
+ex:
+
+//0- false, 1- true
+
+if(100){
+console.log("true");
+}
+else
+{
+   console.log("false");
+}
+
+switch:  if we have multiple choices, we use switch statement to select one choice.
+
+
+syntax:
+
+switch(choice){
+   case choice1: code;
+   case choice2:  code;
+   .
+   .
+   .
+   case choicen: code;
+   default: code
+}
+
+ex:
+
+var country="uk";
+
+switch(country){
+   case "india" : console.log("rupee/ INR"); break;
+   case "usa": console.log("dollar");break;
+   case "uae": console.log("diram");break;
+   default: console.log("wrong choice");
+}
+
+ex:
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+  <select id="state">
+    <option value="Telangana">Telangana</option>
+    <option value="Andhra">Andhra</option>
+    <option value="Karnataka">Karnataka</option>
+  </select>
+
+  <button onclick="showInfo()">ShowInfo</button>
+
+  <h1 id="content"></h1>
+
+  <script>
+ 
+   function showInfo(){
+     var state=document.getElementById("state").value;
+     switch(state){
+       case "Telangana":
+                document.getElementById("content").innerHTML="CM KCR"; break;
+    
+     case "Andhra":
+                document.getElementById("content").innerHTML="CM CBN"; break;
+    
+     case "Karnataka":
+                document.getElementById("content").innerHTML="CM Kumaraswamy"; break;
+     }
+   }
+  
+  </script>
+
+</body>
+
+</html>
+
+
+while loop:
+
+syntax:
+
+while(test-condition)
+{
+   //code
+}
+
+ex:
+
+var num1=1;num2=20;
+while(num1 <= num2){
+   console.log(num1);// 1
+   num1++;
+   //num1= num1+1;
+   //num1+=1;
+}
+
+do-while:
+
+syntax:
+do{
+// code
+}while(test-condition);
+
+difference between while and do while:
+
+var num1=1;num2=5;
+
+while(num1>num2){
+ console.log(num1);
+ num1++;
+}
+do{
+ console.log(num1);//1
+ num1++;//2
+}while(num1>num2);
+console.log("end of the program");
+
+for loop:
+
+syntax:
+for(initialization; test-condition; inc/dec){
+
+}
+
+ex:
+
+for(var num1=1;num1<5;num1++){
+   console.log(num1);
+}
+
+var num1=1
+
+for(;;){
+   console.log(num1);
+   num1++;
+}
