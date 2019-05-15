@@ -1,0 +1,283 @@
+<html>
+
+<head>
+<style>
+
+@import url(http://fonts.googleapis.com/css?family=Fredoka+One);
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+  /*color: #414141;*/
+  background:  url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxgzzQ452w77uew5xdHFPhVs1jH7dP9mL5ARNMx0ZiSesXiLXErA'); /* http://subtlepatterns.com/old-map/ */
+  padding: 25px 0;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  background-size:100%;
+}
+
+.header {
+  overflow: hidden;
+  background: linear-gradient(to top, #33ccff 0%, #669900 100%);
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  font-family: Arial;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  /*background-color: dodgerblue;*/
+  /*color: black;*/
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+br { 
+    display: block; line-height: 1.6em; 
+    } 
+
+
+table { 
+    border-collapse: collapse; border-spacing: 0; 
+    }
+
+img {
+     border: 0; max-width: 100%; 
+     }
+
+h1 {
+  font-family: cursive;
+  color: linear-gradient(to bottom right, #33ccff 0%, #800000 100%);;
+  text-shadow: 1px 2px 0 #7184d8;
+  font-size: 3.5em;
+  line-height: 1.1em;
+  padding: 6px 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+#title {
+  display: block;
+  width: 100%;
+  /*background: #cc0052;*/
+  
+  background: linear-gradient(to bottom left, #33ccff 0%, #ccffff 100%);
+  
+  padding: 10px 0;
+  -webkit-border-top-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -moz-border-radius-topleft: 6px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+#page {
+  display: block;
+  background: #fff;
+  padding: 15px 0;
+  -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+#cart{
+font-family:cursive;
+}
+
+#cart thead th {
+  padding: 8px 0;
+  font-weight: bold;
+  color: maroon;
+}
+
+#cart thead th.first {
+  width: 175px;
+}
+#cart thead th.second {
+  width: 45px;
+}
+#cart thead th.third {
+  width: 230px;
+}
+#cart thead th.fourth {
+  width: 130px;
+}
+#cart thead th.fifth {
+  width: 20px;
+}
+
+#cart tbody td {
+  text-align: center;
+  margin-top: 4px;
+}
+
+tr.productitm {
+  height: 65px;
+  line-height: 65px;
+  border-bottom: 1px solid #d7dbe0;
+}
+
+</style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="https://www.baby-hug.com/static/themes/default/assets/img/logo.png" width="15%" height="8%">
+        <div class="header-right">
+          <a href="productsPage.html" style="font-family:Arial, Helvetica, sans-serif">Home</a>
+          <a href="#contact" style="font-family:Arial, Helvetica, sans-serif">Contact</a>
+          <a href="login.html" style="font-family:Arial, Helvetica, sans-serif">Logout</a>
+        </div>
+      </div>
+
+<div id="w">
+    <!-- <header id="title">
+      <h1>One step ahead to grab your favourites</h1>
+    </header> -->
+    <div id="page">
+      <center><table id="cart">
+        <thead>
+          <tr>
+            <th class="first">Image</th>
+            <th class="second">Qty</th>
+            <th class="third">Product Description</th>
+            <th class="fourth">Item Cost</th>
+            <th class="fifth">&nbsp;</th>
+          </tr>
+        </thead>
+		
+		<tbody>
+  <!-- shopping cart contents -->
+  <tr class="productitm" id="row1">
+    <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+    <td><img src="http://cdn.firstcry.com/brainbees/images/products/219x265/2128690a.jpg" class="thumb" width="30%" height="30%"></td>
+    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+    <td>Design Bundle Package</td>
+    <td>Rs:1579.00</td>
+    <td><span class="remove"><a href="" onclick="deleteItem('1')"><img src="https://cdn2.iconfinder.com/data/icons/e-business-helper/240/627249-delete3-512.png" alt="X" width="5%" height="5%"></a></span></td>
+  </tr>
+  
+  <tr class="productitm">
+    <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+    <td><img src="http://cdn.firstcry.com/brainbees/images/products/219x265/2314089a.jpg" class="thumb" width="30%" height="30%"></td>
+    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+    <td>Design Bundle Package</td>
+    <td>Rs:2000.00</td>
+    <td><span class="remove"><a href=""><img src="https://cdn2.iconfinder.com/data/icons/e-business-helper/240/627249-delete3-512.png" alt="X" width="5%" height="5%"></a></span></td>
+  </tr>
+  
+  <tr class="productitm">
+    <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+    <td><img src="http://cdn.firstcry.com/brainbees/images/products/219x265/2487810a.jpg" class="thumb" width="30%" height="30%"></td>
+    <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+    <td>Design Bundle Package</td>
+    <td>Rs:1300.00</td>
+    <td><span class="remove"><a href=""><img src="https://cdn2.iconfinder.com/data/icons/e-business-helper/240/627249-delete3-512.png" alt="X" width="5%" height="5%"></a></span></td>
+  </tr>
+  
+  <!-- tax + subtotal -->
+  <!--<tr class="extracosts">
+    <td class="light">Shipping & Tax</td>
+    <td colspan="2" class="light"></td>
+    <td>Rs:1579.00</td>
+    <td>&nbsp;</td>
+  </tr>-->
+  
+  <tr> 
+  
+  <td>&nbsp;</td>
+  
+  </tr>
+  
+  <tr class="totalprice">
+    <td class="light">Total:</td>
+   <!-- <td colspan="2">&nbsp;</td>-->
+   <td>&nbsp;</td>
+   <td>&nbsp;</td>
+    <td><span class="thick">Rs:4879.00</span></td>
+  </tr>
+  
+  <tr> 
+	<td>&nbsp;</td>
+  </tr>
+  
+  <tr> 
+	<td>&nbsp;</td>
+  </tr>
+  <!-- checkout btn -->
+  <tr class="checkoutrow">
+    <td colspan="5" class="checkout"><a href=""><img src="https://pngimage.net/wp-content/uploads/2018/05/check-out-button-png-5.png" width="20%" height="45%" style="pointer:cursor"></a></td>
+  </tr>
+</tbody>
+</table></center>
+
+<script>
+
+  function signOut(){
+    window.location = "login.html";
+  }
+
+  function home(){
+    window.location = "productsPage.html";
+  }
+
+// let table = document.querySelector('table');
+
+// // Delete second row
+// table.deleteRow(1);
+
+  // function deleteItem(btn){
+  //   alert("removes item from cart");
+  //   var row = btn.parentNode.parentNode;
+  //   row.parentNode.removeChild(row);
+  // }
+
+  // function deleteItem(i){
+  //   //document.getElementById('cart').deleteItem(i);
+  //   var table = document.getElementById('cart');
+  //       table.deleteItem(i);
+  // }
+
+  function deleteItem(no){
+    document.getElementById("row"+no+"").outerHTML="";
+  }
+
+</script>
+</body>
+</html>

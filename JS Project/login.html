@@ -1,0 +1,213 @@
+<html>
+    <head>
+            <title>Baby Hug</title> 
+            <link rel="shortcut icon" type="image/png" href="babylogo.jpg"/>
+
+            <style>
+                body{
+                    background-image: url('https://i1.wp.com/xianweizhu.com/images/organic-newborn-baby-clothes-the-gentle-nursery__aHR0cHM6Ly93d3cuZ2VudGxlbnVyc2VyeS5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDEvYmVzdC1vcmdhbmljLWJhYnktY2xvdGhlcy1vcmdhbmljLWxheWV0dGUtZ3VpZGUtMTAyNHg3MDQuanBn.jpg?quality=80&strip=all&w=806');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 100%;
+                    background-attachment: fixed;
+                }
+
+                div.logo{
+                    text-align: center;
+                }
+
+                #mainHeading{
+                    text-align: center;
+                    color: rgb(65, 7, 7);
+                    font-family: cursive;
+                }
+
+                .topnav{
+                    float: right;
+                    overflow: hidden;
+                    /* background-color: rgb(94, 92, 92); */
+                }
+
+                .topnav a {
+                    float: left;
+                    color: #310f0f;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    font-size: 17px;
+                }
+            
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .form {
+                    /* border: 3px solid #f1f1f1; */
+                    /* margin: 30%; */
+                    margin-left: 33%;
+                    margin-right: 33%;
+                    /* opacity: 0.5; */
+                    }
+
+                input[type=text], input[type=password] {
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+
+                button {
+                    background-color: rgb(184, 39, 28);
+                    /* background-color: red; */
+                    /* text-align: center; */
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 50%;
+                    
+                }
+
+                button:hover {
+                    opacity: 0.8;
+                }
+
+                .container {
+                    padding: 20px;
+                    background-color:rgb(208, 210, 211);
+                  
+                }
+            </style>
+    </head>
+    <body>
+            <div class="topnav">
+                    <a class="active" href="ecomHome.html">Home</a>&nbsp;&nbsp;
+                    <a href="login.html">Login</a>&nbsp;&nbsp;
+                    <a href="register.html">Register</a>
+                    
+                </div>
+                <br><br>
+                <br>
+
+                <div class="logo">
+                    <img src="https://www.baby-hug.com/static/themes/default/assets/img/logo.png" width="35%" height="25%">
+                </div>
+<br><br>
+                <form class="form" name="myForm">
+                
+                <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="email" id="email" ><span id="errUser" style="color:red"></span>
+                        
+                    <br><br>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" id="password" required><span id="errPsw" style="color:red"></span>
+                          <br><br>  
+                        <button type="button" id="submit" onclick="loginHere()">Login</button><br>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                      </div>
+
+                      <div class="container" style="background-color:#f1f1f1">
+                            <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+                            <span class="psw"><a href="forgotPasswordForm.html">Forgot password?</a></span>
+                            <br><br>
+                            Don't Have an account? <a href="register.html" style="color:red">Register Here</a>
+                          </div>
+                    </form>
+
+                    <script>
+                        
+
+                        function loginHere(){
+
+                       
+                        // if(username ==="admin" && password ==="12345"){
+                        //     // alert("login success1");
+                        //         window.location="productsPage.html";
+                        //     //    alert("alert2");
+                        //        return true;
+
+                               
+                        //     }
+                        //     else{
+                        //         alert("customer login");
+                        //     }
+
+
+                        event.preventDefault();
+                        document.getElementById("errUser").innerHTML = "";
+                        document.getElementById("errPsw").innerHTML = "";
+          var emailEntrd=document.getElementById("email").value;
+          var passwordEntrd=document.getElementById("password").value;
+
+          var userdata  = localStorage.getItem(emailEntrd);
+          console.log(userdata);
+
+        //   if(userdata!==null && userdata!==undefined)
+        //   {
+            
+        // //parse string back to object so that we can access indivual items like email
+        // // username and password  
+        //   const data = JSON.parse(localStorage.getItem(emailEntrd));
+        //      if( passwordEntrd == data.password)
+        //      {
+
+        //          window.alert("login successfull");
+        //          //window.location = "productsPage.html";
+        //      }
+        //      else
+        //      {
+        //          //window.alert("Invalid Username/password")
+        //          document.getElementById("errPsw").innerHTML = "Enter valid Password";
+        //          return false;
+        //      }
+        //   }
+        //   else{
+        //          //window.alert("Invalid Username/password");
+        //          document.getElementById("errUser").innerHTML = "Enter valid Username";
+        //          return false;
+        //   }
+
+        if(userdata!==null && userdata!==undefined)
+        {
+			if(emailEntrd === "admin@gmail.com" && passwordEntrd == "Admin123!")
+			{
+			
+					window.location = "adminPage.html";
+			 }
+			 else
+			 {
+				const data = JSON.parse(localStorage.getItem(emailEntrd));
+					if( passwordEntrd == data.password)
+					{
+
+						window.alert("login successfull");
+						window.location = "productsPage.html";
+					}
+					else
+					{
+						//window.alert("Invalid Username/password")
+						document.getElementById("errPsw").innerHTML = "Enter valid Password";
+						return false;
+					}	
+			 }
+        }
+        else
+		{
+                 //window.alert("Invalid Username/password");
+                 document.getElementById("errUser").innerHTML = "Enter valid Username";
+                 return false;
+        }              
+
+
+
+                        }
+                    </script>
+    </body>
+</html>

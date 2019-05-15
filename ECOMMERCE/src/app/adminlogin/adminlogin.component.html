@@ -1,0 +1,64 @@
+<html>
+  <body class="body">
+
+  
+
+<br><br><br>
+
+
+
+
+
+<div class="container" style="padding-left:33%;padding-right: 33%;padding-top: 5%;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+    
+  <div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <!-- <h4 class="card-title mt-3 text-center"><b>Sign In</b></h4><br> -->
+    <i class="fa fa-user" style="font-size:36px;margin-left: 42%;"></i>
+      <h4 style="text-align:center;"><b>Admin Login</b></h4>
+    <form [formGroup]="adminlogin" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group input-group">
+        
+          <input name="" class="form-control" placeholder="Email address" type="email"
+                 formControlName="emailId" [ngClass]="{ 'is-invalid': submitted && f.emailId.errors }">
+              <div *ngIf="submitted && f.emailId.errors" class="invalid-feedback">
+                  <div *ngIf="f.emailId.errors.required">Email is required</div>
+                  <div *ngIf="f.emailId.errors.email">Email must be a valid email address</div>
+              </div>
+
+    </div> <!-- form-group// -->
+
+
+     
+      <div class="form-group input-group">
+        
+          <input class="form-control" placeholder="Enter password" type="password"
+                 formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+              </div>
+      </div> <!-- form-group// -->
+
+                                         
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block" style="background-color:brown;color:wheat;"> Login  </button>
+      </div> <!-- form-group// -->  
+      
+      <!-- <h3>{{resp?.message}}</h3>     -->
+      
+      <a routerLink="/forgotpassword">Forgot Password?</a> 
+      <p class="text-center">Don't have an account? <a routerLink="/adminreg">Register Here!!</a> </p>
+                                                                       
+  </form>
+  </article>
+  </div> <!-- card.// -->
+  
+  </div> 
+  <!--container end.//-->
+
+  
+
+</body>
+</html>

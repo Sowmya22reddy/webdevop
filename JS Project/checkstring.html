@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>"Hello world, welcome to the universe."</p>
+<button onclick="myFunction()">Check Word</button>
+
+<p id="string"></p>
+
+
+<script>
+function myFunction() {
+  var str = "Hello world, welcome to the universe.";
+  var n = str.includes("world");
+  document.getElementById("string").innerHTML = n;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+1.  function with parameter and with return type
+2. function with parameter and without return type
+3.  function without parameter and with return type
+4. function without parameter and without return type.
+
+
+1.
+
+ex: function add(a,b){
+    var c=a+b;
+    return c;
+}
+add();
+var res=console.log(c);

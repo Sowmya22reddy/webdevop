@@ -1,0 +1,53 @@
+<html>
+
+
+<body>
+      <label><b>Enter Acc No. :</b></label>
+      <input type="text" placeholder="accountnumber"  id="accountnumber"
+       oncopy="return copy()" 
+       onkeypress="return test(event)" 
+       onpaste="return paste()" >
+       <span style="color:rgb(201, 14, 14)" id="accno_error"></span>
+
+     <script>
+     
+      function paste()
+      {
+          document.getElementById("accno_error").innerHTML="cannot paste account number";
+          return false;
+      }
+
+      function test(key)
+      {
+          document.getElementById("accno_error").innerHTML="";
+          var accno= document.getElementById("accountnumber").value;
+          var accLen = (accno + "").length; 
+          var keycode = (key.which) ? key.which : key.keyCode;
+           //comparing pressed keycodes
+            
+           if (keycode > 31 && (keycode < 48 || keycode > 57)) 
+           {
+            document.getElementById("accno_error").innerHTML=" You can enter only characters 0 to 9 ";
+               return false;
+           }
+           //else return true;
+
+           if(accLen==12)
+           {
+              document.getElementById("accno_error").innerHTML=" Account number should not exceed 12 digits ";
+              return false;
+           }
+      }
+
+      function copy()
+      {
+          document.getElementById("accno_error").innerHTML="cannot copy the account number";
+          return false;
+      }
+      
+
+     </script>
+
+</body>
+
+</html>

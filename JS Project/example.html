@@ -1,0 +1,92 @@
+<html>
+        <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+              </head>
+    <body>
+        <center><img width="30%" height="40%" src="https://media.glassdoor.com/l/2b/47/1c/bb/digital-workplace.jpg"></center>
+       <center>
+            <button type="button" onclick="like()" class="btn btn-default btn-sm">
+
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                 Like
+              </button>
+               <span id="like"  class="badge">0</span>
+            </center> 
+              <center>
+                  <button type="button" onclick="dislike()" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                     DisLike
+                  </button>
+                   <span id="dislike"  class="badge">0</span></center>
+<br><br>
+                   <center>
+                    <button type="button" onclick="done()" class="btn btn-default btn-sm">
+                      <span class="glyphicon glyphicon-thumbs-up"></span>
+                      
+                    </button>
+                     <span id="done"  class="badge">0</span></center>
+
+                     <br><br>
+
+
+            <center>
+                    <img id="heart"  
+                    src="http://www.clker.com/cliparts/Q/P/D/n/2/c/red-heart-outline-md.png"
+                    alt="Image" width="35" height="35" onclick="clickMe()">
+            </center>
+
+            
+         <script>
+ 
+               var likeCount=0;
+               var disLikeCount=0;
+               
+              function like(){
+                  likeCount++;// increment operator
+                   document.getElementById('like').innerHTML=likeCount;
+              }
+              function dislike(){
+                  disLikeCount++;
+                document.getElementById('dislike').innerHTML=disLikeCount;
+              }
+
+              var doneCount=0;
+
+              function done(){
+                if(doneCount > 0){
+                     doneCount--;
+                     document.getElementById('done').innerHTML=doneCount; 
+                 }
+                else{
+                     doneCount++;
+                     document.getElementById('done').innerHTML=doneCount;
+                    }
+                }
+
+               
+                var image;
+
+                       function clickMe()
+                       {
+                        image=document.getElementById('heart');
+
+                        if (image.src.match("http://www.clker.com/cliparts/Q/P/D/n/2/c/red-heart-outline-md.png")) 
+                        {
+                            image.src = "https://www.freeiconspng.com/uploads/simple-red-heart-png-clip-art-1.png";
+                        }
+                        else
+                        {
+                            image.src = "http://www.clker.com/cliparts/Q/P/D/n/2/c/red-heart-outline-md.png";
+                        }
+                        
+                       }
+
+
+        </script>
+
+
+    </body>
+</html>

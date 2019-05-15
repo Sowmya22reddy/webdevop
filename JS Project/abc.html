@@ -1,0 +1,44 @@
+<html>
+    <head>
+       
+        
+    </head>
+    <body>
+            <center>
+                <img width="30%" 
+                     height="40%" 
+                     src="https://www.planwallpaper.com/static/images/0382763769f46da4ff3c6644eeac648c_large_iXL6SyF.jpeg">
+            </center>
+
+            <h3 style="text-align:center;color:rgb(143, 58, 18);">Comment Here</h3>
+        <center><input type="text" id="para">
+                <input type="button" onclick="getComments()" value="Post" />
+                <span id="comment"  class="badge">0</span> <br>
+                <p id="para1" style="color:rgb(80, 2, 2)"></p>
+        </center>
+
+        
+                <script>
+                        var commentCount=0;
+                        var reset;
+                        function getComments() {
+                            if(document.getElementById('para').value!=""){
+                            commentCount++;
+                            document.getElementById('comment').innerHTML = commentCount;
+                            }
+
+                            text = para.value;
+                            document.getElementById("para1").innerHTML +='<p>'+text;
+                            
+                            reset=document.getElementById("para");
+                            if(reset){
+                                 reset.value="";
+                            }
+
+                            var button = document.createElement("button");
+                            button.innerHTML = "Do Something";
+                        }
+                </script>
+        
+    </body>
+</html>

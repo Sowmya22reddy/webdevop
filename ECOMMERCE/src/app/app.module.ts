@@ -20,6 +20,8 @@ import { EcommGuard } from './ecomm.guard';
 import { AdminpageComponent } from './adminpage/adminpage.component';
 import { ProductsComponent } from './products/products.component';
 import { UpdateProdComponent } from './update-prod/update-prod.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminregComponent } from './adminreg/adminreg.component';
 
 
 
@@ -36,7 +38,9 @@ import { UpdateProdComponent } from './update-prod/update-prod.component';
     AdminHomeComponent,
     AdminpageComponent,
     ProductsComponent,
-    UpdateProdComponent
+    UpdateProdComponent,
+    AdminloginComponent,
+    AdminregComponent
     
     
   ],
@@ -80,6 +84,12 @@ import { UpdateProdComponent } from './update-prod/update-prod.component';
       },
       {
         path:'update-prod/:id',component: UpdateProdComponent
+      },
+      {
+        path:'adminlogin',component: AdminloginComponent
+      },
+      {
+        path:'adminreg',component: AdminregComponent
       }
       
     ])

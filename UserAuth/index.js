@@ -5,7 +5,7 @@ var cors = require('cors');
 // const jwt = require('jsonwebtoken');
 var User = require("./server/route/users");
 var Product = require("./server/route/products")
-
+var Admin = require("./server/route/admins")
 
 mongoose.connect("mongodb://localhost/NEWUSER");
 
@@ -24,6 +24,8 @@ app.get('/api/getProduct',Product.getProducts);
 app.get('/api/getProdById/:id',Product.getProductsByID);
 app.put('/api/updateProduct/:id',Product.updateProduct);
 app.delete('/api/deleteProduct/:id',Product.deleteProduct);
+app.post('/api/admin_reg',Admin.registerAdmin);
+app.post('/api/admin_login',Admin.loginAdmin);
     
 
 app.listen(3209,function(){

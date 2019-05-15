@@ -1,0 +1,162 @@
+<html>
+    <head>
+            <title>Baby Hug</title> 
+            <link rel="shortcut icon" type="image/png" href="babylogo.jpg"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           
+            <style>
+            body{
+                    background-image: url('https://i1.wp.com/xianweizhu.com/images/organic-newborn-baby-clothes-the-gentle-nursery__aHR0cHM6Ly93d3cuZ2VudGxlbnVyc2VyeS5jb20vd3AtY29udGVudC91cGxvYWRzLzIwMTcvMDEvYmVzdC1vcmdhbmljLWJhYnktY2xvdGhlcy1vcmdhbmljLWxheWV0dGUtZ3VpZGUtMTAyNHg3MDQuanBn.jpg?quality=80&strip=all&w=806');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 100%;
+                    background-attachment: fixed;
+                }
+
+                div.logo{
+                    text-align: center;
+                }
+
+                .topnav{
+                    float: right;
+                    overflow: hidden;
+                    /* background-color: rgb(94, 92, 92); */
+                }
+
+                .topnav a {
+                    float: left;
+                    color: #310f0f;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    font-size: 17px;
+                }
+            
+                .topnav a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .form {
+                    /* border: 3px solid #f1f1f1; */
+                    /* margin: 30%; */
+                    margin-left: 33%;
+                    margin-right: 33%;
+                    /* opacity: 0.5; */
+                    }
+
+                input[type=text], input[type=password] {
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+
+                button {
+                    background-color: rgb(184, 39, 28);
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 50%;
+                    
+                }
+
+                button:hover {
+                    opacity: 0.8;
+                }
+
+                .container {
+                    padding: 20px;
+                    /* margin: 80px; */
+                    background-color:rgb(208, 210, 211);
+                   
+                }
+
+                /* .comment{
+                    border: 2px solid;
+                    border-color: darkgrey;
+                    border-radius: 2px;
+                    padding: 10px;
+                    background-color: gray;
+                } */
+            </style>
+
+    </head>
+    <body>
+            <div class="topnav">
+                    <a class="active" href="ecomHome.html">Home</a>&nbsp;&nbsp;
+                    <a href="login.html">Login</a>&nbsp;&nbsp;
+                    <a href="register.html">Register</a>
+                    
+                </div>
+                <br><br>
+                <br>
+        
+                <div class="logo">
+                    <img src="https://www.baby-hug.com/static/themes/default/assets/img/logo.png" width="25%" height="15%">
+                </div>
+                <br><br>
+
+                <form class="form">
+                        <div class="container">
+                            <!-- <label for="oldpassword"><b>Old Password</b></label>
+                            <input type="password" placeholder="Enter Old Password" name="oldpassword" id="oldpassword" required>
+                         -->
+                            <label for="name"><b>Name</b></label>
+                            <input type="text" placeholder="Enter Name" name="name" id="name" required>
+            
+                            <label for="email"><b>Email-Id</b></label>
+                            <input type="text" placeholder="Enter Email-Id" name="email" id="email" required>
+
+                            <label for="comment"><b>Comment</b></label>
+                            <textarea rows="4" cols="57" placeholder="Comment here" id="text" onkeyup="allow()" required>
+                                   
+                            </textarea>
+                                
+                            <button type="submit" onclick="postComment()">Post</button>
+                            
+                          </div>
+                    </form>
+                    <div id="display"></div>
+                     
+                    <script>
+                        var titles = [];
+                        var titleInput = document.getElementById("text");
+                        var titleName=document.getElementById("name");
+                        var titleEmail=document.getElementById("email");
+                        var messageBox = document.getElementById("display");
+
+                        function allow(){
+                            if (!user.text.value.match(/[a-zA-Z]$/) && user.text.value !="")
+                            {
+                                user.text.value="";
+                                alert("Please Enter only alphabets");
+                            }
+
+                            window.location.reload();
+                        }
+
+                        function postComment(){
+                            titles.push(titleName.value);
+                            titles.push(titleEmail.value);
+                            titles.push(titleInput.value);
+                            
+                            clearAndShow();
+                        }
+
+                        function clearAndShow(){
+
+                            titleInput.value = "";
+                            titleName.value = "";
+                            titleEmail.value = "";
+                            messageBox.innerHTML = "" ;
+                            messageBox.innerHTML += " " + titles.join("<br/> ") + "<br/>"  ;
+                            
+                        }
+                    </script>
+    </body>
+</html>

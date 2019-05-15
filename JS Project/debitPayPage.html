@@ -1,0 +1,264 @@
+<html>
+    <head>
+            <title>Baby Hug</title> 
+            <link rel="shortcut icon" type="image/png" href="babylogo.jpg"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+            <!-- <link rel="stylesheet" href="style.css"> -->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <style>
+            
+            body{
+                    background-image: 
+                    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxgzzQ452w77uew5xdHFPhVs1jH7dP9mL5ARNMx0ZiSesXiLXErA');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 100%;
+                    background-attachment: fixed;
+                }
+
+                .header {
+  overflow: hidden;
+  background: linear-gradient(to top, #33ccff 0%, #669900 100%);
+  padding: 20px 20px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  /*background-color: none;*/
+  /*color: black;*/
+}
+
+.header-right {
+  float: right;
+}
+
+
+
+.creditCardForm {
+    max-width: 700px;
+    background-color: #fff;
+    margin: 100px auto;
+    overflow: hidden;
+    padding: 25px;
+    color: #4c4e56;
+}
+.creditCardForm label {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.creditCardForm .heading h1 {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #4c4e56;
+}
+.creditCardForm .payment {
+    float: left;
+    font-size: 18px;
+    padding: 10px 25px;
+    margin-top: 20px;
+    position: relative;
+}
+.creditCardForm .payment .form-group {
+    float: left;
+    margin-bottom: 15px;
+}
+.creditCardForm .payment .form-control {
+    line-height: 40px;
+    height: auto;
+    padding: 0 16px;
+}
+.creditCardForm .owner {
+    width: 63%;
+    margin-right: 10px;
+}
+.creditCardForm .CVV {
+    width: 35%;
+}
+.creditCardForm #card-number-field {
+    width: 100%;
+}
+.creditCardForm #expiration-date {
+    width: 49%;
+}
+.creditCardForm #credit_cards {
+    width: 50%;
+    margin-top: 25px;
+    text-align: right;
+}
+.creditCardForm #pay-now {
+    width: 100%;
+    margin-top: 25px;
+}
+.creditCardForm .payment .btn {
+    width: 100%;
+    margin-top: 3px;
+    font-size: 24px;
+    background-color: #2ec4a5;
+    color: white;
+}
+.creditCardForm .payment select {
+    padding: 10px;
+    margin-right: 15px;
+}
+.transparent {
+    opacity: 0.2;
+}
+@media(max-width: 650px) {
+    .creditCardForm .owner,
+    .creditCardForm .CVV,
+    .creditCardForm #expiration-date,
+    .creditCardForm #credit_cards {
+        width: 100%;
+    }
+    .creditCardForm #credit_cards {
+        text-align: left;
+    }
+}
+
+            </style>
+    </head>
+    <body>
+
+            <div class="header">
+                    <img src="https://www.baby-hug.com/static/themes/default/assets/img/logo.png" width="15%" height="8%">
+                    <div class="header-right">
+                      <a class="active" href="productsPage.html">Home</a>
+                      <a href="addCart.html">Cart<i class="fa fa-shopping-cart"></i></a>
+                      <a href="login.html">Logout</a>
+                    </div>
+                  </div>
+
+                  <div class="creditCardForm">
+                    <div class="heading">
+                        <h1>Credit/Debit card Payment</h1>
+                    </div>
+                    <div class="payment">
+                        <form>
+                            <div class="form-group owner">
+                                <label for="owner">Name On Card</label>
+                                <input type="text" class="form-control" id="owner">
+                                <span style="color:rgb(201, 14, 14)" id="owner_error"></span>
+                            </div>
+                            <div class="form-group CVV">
+                                <label for="cvv">CVV</label>
+                                <input type="password" class="form-control" id="cvv">
+                                <span style="color:rgb(201, 14, 14)" id="cvv_error"></span>
+                            </div>
+                            <div class="form-group" id="card-number-field">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber">
+                                <span style="color:rgb(201, 14, 14)" id="cardno_error"></span>
+                            </div>
+                            <div class="form-group" id="expiration-date">
+                                <label>Expiration Date</label>
+                                <select>
+                                    <!-- <option value="" selected disabled hidden>Month</option> -->
+                                    <option value="01">Jan(01)</option>
+                                    <option value="02">Feb(02) </option>
+                                    <option value="03">Mar(03)</option>
+                                    <option value="04">Apr(04)</option>
+                                    <option value="05">May(05)</option>
+                                    <option value="06">Jun(06)</option>
+                                    <option value="07">Jul(07)</option>
+                                    <option value="08">Aug(08)</option>
+                                    <option value="09">Sep(09)</option>
+                                    <option value="10">Oct(10)</option>
+                                    <option value="11">Nov(11)</option>
+                                    <option value="12">Dec(12)</option>
+                                </select>
+                                <select>
+                                    <!-- <option value="" selected disabled hidden>Year</option> -->
+                                    <option value="16"> 2016</option>
+                                    <option value="17"> 2017</option>
+                                    <option value="18"> 2018</option>
+                                    <option value="19"> 2019</option>
+                                    <option value="20"> 2020</option>
+                                    <option value="21"> 2021</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="credit_cards">
+                                <img src="data:image/png;base64,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" id="visa" width="20%" height="5%">
+                                <img src="data:image/png;base64,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" id="mastercard" width="20%" height="5%">
+                                
+                            </div>
+                            <div class="form-group" id="pay-now">
+                            <input type="button" class="btn btn-default" value="Confirm" id="confirm-purchase" onclick="cardPaySuccess()">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                  
+
+                  <script>
+                  
+                    function home()
+                    {
+                        window.location = "productsPage.html";
+                    }
+
+                    function cardPaySuccess()
+                    {
+                        event.preventDefault();
+                        document.getElementById("owner_error").innerHTML = "";
+                        document.getElementById("cvv_error").innerHTML = "";
+                        document.getElementById("cardno_error").innerHTML = "";
+
+                        var owner = document.getElementById("owner").value;
+                        var cvv = document.getElementById("cvv").value;
+                        var cardNumber = document.getElementById("cardNumber").value;
+                        cvvLen = (cvv + "").length;
+
+                        if(owner.length > 0)
+                        {
+                            if(cvvLen == 3)
+                            {
+                                if(cardNumber.length == 16)
+                                {
+                                    alert("payment success");
+                                    window.location = "cardPaySuccess.html";
+                                }
+                                else
+                                {
+                                    document.getElementById("cardno_error").innerHTML = "Card number should not exceed 16 digits";
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                document.getElementById("cvv_error").innerHTML = "cvv should not exceed 3 digits";
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            document.getElementById("owner_error").innerHTML = "PLease enter name on card";
+                            return false;
+                        }
+
+                    }            
+
+                  </script>
+    </body>
+</html>

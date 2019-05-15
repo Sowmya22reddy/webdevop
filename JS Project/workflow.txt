@@ -1,0 +1,18 @@
+** E-Commerce Website ---> Home Page ---> Existing User ---> Login with username and password 
+   ---> If invalid username/password entered ---> Enter valid username/password ---> Click Login.
+
+** Register workflow: Home Page ---> Don't have an account ---> Sign Up 
+   ---> Enter username, email-id, mobile no., password ---> Verify email-id/mobile no. ---> Sign up confirmed
+   ---> Login with your username and password.
+
+** Forgot Password workflow: Forgot password ---> Get a verification code to registered mobile no.(text/call)/
+   send a recovery message to mobile no. ---> reset password ---> enter new password ---> Login.
+
+** Checkout: Customer ---> view products ---> add products to cart ---> Submit the order 
+   ---> payment through credit/debit card/cash on delivery ---> order sent to warehouse for shipping 
+   ---> Shipping is scheduled and sent to customer. 
+                          
+** View orders workflow: Login with username and password ---> In menu bar ---> view orders 
+   ---> check the order placed ---> cancel order or edit order/return or replace order if order is recieved.
+
+** Cart Workflow: view products ---> add products to cart ---> view cart ---> add products/remove products ---> Checkout.

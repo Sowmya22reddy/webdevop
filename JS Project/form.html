@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form name="myForm" class="border">
+            Username:<input type="text" name="username" id="username"/>
+            <br><br>
+            Password:<input type="password" name="password" id="password"/>
+            <br>
+            <input type="button" onclick="Login()" value="Click Me"/>
+            </form>
+
+            <script>
+            
+                function Login(){
+                    var username=document.getElementById("username").value;
+                    var password=document.getElementById("password").value;
+
+                    if(username ==="user" && password ==="12345"){
+                            alert("login success");
+                               
+                            }
+                            else{
+                                alert("login failed");
+                            }
+                }
+
+            </script>
+    </body>
+</html>

@@ -49,7 +49,7 @@
 
 <br><br><br>
 
-<div class="container">
+<!-- <div class="container">
   
   <div class="row">
     <div class="col-md-4">
@@ -85,10 +85,10 @@
 
        
   </div>
-</div>
+</div> -->
 
 
-<div class="container">
+<!-- <div class="container">
 
     <div class="row">
       <div class="col-md-4">
@@ -124,11 +124,11 @@
 
          
     </div>
-  </div>
+  </div> -->
 
 
 
-  <div class="container">
+  <!-- <div class="container">
 
     <div class="row">
       <div class="col-md-4">
@@ -164,7 +164,39 @@
 
          
     </div>
-  </div>
+  </div> -->
+
+  <table *ngIf="products" class="container">
+    <tr class="row">
+      <td class="col-md-3" *ngFor="let product of products">
+        <div class="thumbnail">
+          <a href="">
+            <img class="prodImage" src="{{product.prodImage}}">
+  
+            <div class="caption">
+              <b>
+                <p class="prodName">{{product.prodName}}</p>
+              </b>
+            </div>
+            <b>
+              <p class="prodPrice">Rs: {{product.prodPrice}}</p>
+            </b>
+            <!-- <p class="prodDesc">{{product.prodDesc}}</p> -->
+          </a>
+          <!-- <div class="container" >
+            <div class="row" >
+         
+            <button class="glyphicon glyphicon-edit" style="margin-left:60px;" [routerLink]="['/update-prod',product._id]"></button> &nbsp;&nbsp;
+            <button class="glyphicon glyphicon-trash" (click)="deleteProduct(product._id)"></button>
+          </div>
+        </div> -->
+        </div>
+      </td>
+    </tr>
+  
+  
+  </table>
+
 
   <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
     <div class="container">

@@ -1,0 +1,61 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+            <!--<div id="commentbackground">
+
+                    <p id="para"></p>
+                    
+                    <form>
+                    <textarea id="words" >Enter comment</textarea>
+                    <input type="button" onclick="getwords()" value="Enter" />
+                    </form>
+                    
+                    <script type="text/javascript">
+                    function getwords(){
+                    text = words.value;
+                    document.getElementById("para").innerHTML = text
+                    document.getElementById("words").innerHTML = "enter"
+                    }
+                    </script>
+                    
+                    </div>-->
+<!-- ------------------------------------------------------------------------------------------------------- -->
+                    <form>
+                        <textarea id="words"></textarea>
+                        <input type="button" onclick="getComments()" value="Post" />
+                        <span id="comment"  class="badge">0</span> <br>
+                        <p id="para"></p>
+                    </form>
+                            
+                    <script>
+                        var commentCount=0;
+                        function getComments() {
+                            
+                            text = words.value;
+                            document.getElementById("para").innerHTML +='<p>'+text;
+                            //document.getElementById("words").value = "Enter Comment";
+                           /* if(text!=null){
+                                commentCount++;
+                                document.getElementById('comment').innerHTML=commentCount;*/
+
+                                /*var value = parseInt(document.getElementById('comment').value, 10);
+                                value = isNaN(value) ? 0 : value;
+                                value++;
+                                document.getElementById('comment').value = value;
+                            }*/
+                            if(document.getElementById("para").value=""){
+                                commentCount++;
+                            document.getElementById('comment').value = commentCount;
+                            }
+                            
+                            
+                        }
+                    </script>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+
+
+    </body>
+</html>

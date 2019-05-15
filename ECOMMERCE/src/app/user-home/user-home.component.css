@@ -7,6 +7,56 @@
     
 } */
 
+body{
+    overflow-x: hidden;
+}
+
+.prodPrice{
+    text-align: center;
+}
+
+.row {
+    margin:10px;
+    
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+    .col-md-4{
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  .thumbnail {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    text-align: center;
+    background-color: #ffffff;
+  }
+
+  h4
+  {
+      text-align: center;
+      color: maroon;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      
+      
+  }
+
+  .product{
+      max-width: 10%;
+      margin-left: 45%;
+      margin-right: 45%;
+  }
+
 /*search css*/
 .searchbar{
     margin-bottom: auto;

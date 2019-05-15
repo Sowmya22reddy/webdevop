@@ -63,7 +63,8 @@ export class LoginComponent implements OnInit {
             this.urls.logout=true;
             this.urls.adminhome=false;
             this.urls.adminpage=false;
-            this.urls.products=true;
+            this.urls.products=false;
+            this.urls.admin=false;
           }
           else
           {

@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+            ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    float: right;
+               }
+
+            li {
+                    display: inline;
+                }
+        </style>
+    </head>
+    <body>
+            <ul>
+                    <li><a href="#home">Home</a></li> &nbsp;&nbsp;
+                    <li><a href="#Login">Login</a></li> &nbsp;&nbsp;
+                    <li><a href="#SignUp">SignUp</a></li>&nbsp;&nbsp;
+                    <li><a href="#Cart">Cart</a></li>
+            </ul>
+<br>
+        <center>
+            <img src="https://www.prodesigns.com/backend/img/sliders/feminine-logo-design/1511863083-fashion%20trends.png" 
+             width="30%" 
+             height="50%">
+        
+        <h3>Choose your Category to shop</h3>
+        <select id="category" 
+                onclick="showInfo()" 
+                style="font-family:cursive;background-color:rgb(160, 25, 25);color: wheat;cursor:pointer;border-radius:5px;">
+
+                <option value="" selected disabled hidden>Choose here</option>
+                <option value="Men Fashion">Men Fashion</option>
+                <option value="Women Fashion">Women Fashion</option>
+                <option value="Kids Clothing">Kids Clothing</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Footwear">Footwear</option>
+
+        </select>
+        
+        <br>
+        <br>
+        <center><table style="padding: 10">
+            <tr style="text-align:center;visibility: hidden;">
+                  <td><a href=""><img src="" id="image" width="80%" height="50%"/></a></td>
+                  <td><a href=""><img src="" id="image1" width="80%" height="50%"/></a></td>
+                  <td><a href=""><img src="" id="image2" width="80%" height="50%"/></a></td>
+                  <td><a href=""><img src="" id="image3" width="80%" height="50%"/></a></td>
+            </tr>
+        </table>
+    </center>
+  <script>
+ 
+   function showInfo(){
+     var category=document.getElementById("category").value;
+
+     
+     switch(category){
+
+        case "": document.getElementById("image").style.visibility="visible";
+                document.getElementById("image1").style.visibility="visible";
+                document.getElementById("image2").style.visibility="visible";
+                document.getElementById("image3").style.visibility="visible";break;
+       
+       case "Men Fashion":
+                
+               document.getElementById("image").src='https://rukminim1.flixcart.com/image/495/594/t-shirt/p/4/h/elfull01b-elepants-l-original-imaepmzymnmecpwq.jpeg?q=50';
+               
+               document.getElementById("image1").src='https://rukminim1.flixcart.com/image/495/594/jp780i80/t-shirt/u/8/t/s-tnvhdfulabstract1-tripr-original-imafbdarnwhfh7uu.jpeg?q=50';
+               
+               document.getElementById("image2").src='https://rukminim1.flixcart.com/image/495/594/jao8uq80/t-shirt/f/f/h/s-7-shapphr-original-imaetxzz6hvxcrxb.jpeg?q=50';
+              
+               document.getElementById("image3").src='https://rukminim1.flixcart.com/image/495/594/jll6xzk0/t-shirt/3/r/a/s-t-shirt-3-step-eg-original-imaf83fgxcxwajra.jpeg?q=50';break;
+    
+     case "Women Fashion":
+                document.getElementById("image").src='https://rukminim1.flixcart.com/image/495/594/jc299jk0/sari/g/2/n/free-kr-bgp-gola-royal-blue-kara-original-imaff9ccuzj3hupf.jpeg?q=50';
+                document.getElementById("image1").src='https://rukminim1.flixcart.com/image/495/594/jnoxa4w0/sari/h/f/f/free-3002-fashion-ritmo-original-imafabaagx8gfdjz.jpeg?q=50';
+                document.getElementById("image2").src='https://rukminim1.flixcart.com/image/495/594/jhmawsw0/sari/v/9/d/free-618s504-saara-original-imaf4yypb2hkvjwv.jpeg?q=50';
+                document.getElementById("image3").src='https://rukminim1.flixcart.com/image/495/594/jmmce4w0/sari/p/4/c/free-kirtan-pata-kitkina-original-imaf7hhfj7gbfyya.jpeg?q=50';break;
+    
+     case "Kids Clothing":
+                document.getElementById("image").src='https://rukminim1.flixcart.com/image/495/594/jjabekw0/kids-ethnic-set/d/6/z/18-24-months-digibc001-digimart-original-imaffh6rbngcs38p.jpeg?q=50';
+                document.getElementById("image1").src='https://rukminim1.flixcart.com/image/495/594/jph83gw0/kids-ethnic-set/q/m/7/18-24-months-667-blue-aj-dezines-original-imaemt2fpyfttrf2.jpeg?q=50';
+                document.getElementById("image2").src='https://rukminim1.flixcart.com/image/495/594/jjrgosw0/kids-dress/j/5/b/1-2-years-black1-nikunj-original-imaf4ykskpuf7d6s.jpeg?q=50';
+                document.getElementById("image3").src='https://rukminim1.flixcart.com/image/495/594/jnj7iq80/kids-dress/s/2/e/9-10-years-sbngc0422-ftc-fashions-original-imaf4hb2ywhhzmv2.jpeg?q=50';break;
+
+    case "Accessories":
+                document.getElementById("image").src='https://rukminim1.flixcart.com/image/495/594/jc7z0y80/hand-messenger-bag/h/b/x/handbag-gd040-hand-held-bag-onland-original-imaffdhnryhgr3um.jpeg?q=50';
+                document.getElementById("image1").src='https://rukminim1.flixcart.com/image/495/594/jms25jk0/wallet-card-wallet/t/y/2/women-designer-long-zipper-wallet-black-1-wallet-satyam-kraft-original-imaf9hy4hap3pxf5.jpeg?q=50';
+                document.getElementById("image2").src='https://rukminim1.flixcart.com/image/495/594/jbv42a80/sunglass/p/u/u/one-size-fits-all-panto-new-black-clear775gub-azmani-original-imaevh2wmjynbexy.jpeg?q=50';
+                document.getElementById("image3").src='https://rukminim1.flixcart.com/image/495/594/ring/4/z/a/ycfjcr-0004475bl-9-yellow-chimes-ring-set-original-imae9np5j4uh4fju.jpeg?q=50';break;
+
+    case "Footwear":
+                document.getElementById("image").src='https://rukminim1.flixcart.com/image/495/594/jmnrtzk0-1/shoe/h/r/j/15119-black-8-8-crown-sapphire-black-original-imaf9gc2k65jzpff.jpeg?q=50';
+                document.getElementById("image1").src='https://rukminim1.flixcart.com/image/495/594/jl5h3m80/shoe/m/a/g/vvs-114-6-world-wear-footwear-grey-original-imaerj3p6gybe2g3.jpeg?q=50';
+                document.getElementById("image2").src='https://rukminim1.flixcart.com/image/495/594/j51cbrk0/sandal/e/u/c/ddwf-b-20-40-digni-black-original-imaevtfyrajacsnf.jpeg?q=50';
+                document.getElementById("image3").src='https://rukminim1.flixcart.com/image/495/594/jdhp47k0/shoe/f/2/b/b-brown-b2-38-denill-s-brown-original-imaffc63ky2k7bug.jpeg?q=50';break;
+     }
+   }
+  
+  </script>
+    </center>
+    </body>
+</html>

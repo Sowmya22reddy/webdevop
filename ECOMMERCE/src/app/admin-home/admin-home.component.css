@@ -1,6 +1,6 @@
-/* .container{
-    margin-left: 25%;
-} */
+body{
+    overflow-x: hidden;
+}
 
 .prodPrice{
     text-align: center;

@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 })
 export class UserHomeComponent implements OnInit {
 
+  products;
+  
   constructor(private authService:AuthService,private router:Router) { }
 
   ngOnInit() {
 
-    
+    this.authService.getProducts().subscribe(
+      (response) =>{
+        this.products = response;
+      }
+    )
 
   }
 

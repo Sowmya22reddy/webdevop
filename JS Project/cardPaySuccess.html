@@ -1,0 +1,103 @@
+<html>
+    <head>
+            <title>Baby Hug</title> 
+            <link rel="shortcut icon" type="image/png" href="babylogo.jpg"/>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+            
+            body{
+                    background-image: 
+                    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxgzzQ452w77uew5xdHFPhVs1jH7dP9mL5ARNMx0ZiSesXiLXErA');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 100%;
+                    background-attachment: fixed;
+                }
+
+                .header {
+  overflow: hidden;
+  background: linear-gradient(to top, #33ccff 0%, #669900 100%);
+  padding: 20px 20px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  /*background-color: none;*/
+  /*color: black;*/
+}
+
+.header-right {
+  float: right;
+}
+
+.orderPlaced{
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.msg{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+            </style>
+    </head>
+    <body>
+
+            <div class="header">
+                    <img src="https://www.baby-hug.com/static/themes/default/assets/img/logo.png" width="15%" height="8%">
+                    <div class="header-right">
+                      <a class="active" href="productsPage.html">Home</a>
+                      <a href="addCart.html">Cart<i class="fa fa-shopping-cart"></i></a>
+                      <a href="login.html">Logout</a>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+
+                  <div style="text-align:center">
+                      <img src="http://www.goldenturtlefarm.com/resources/images/payment%20successful.png">
+                      <br>
+                      <br>
+                      <h3>Your order is currently being processed. You'll receive an order confirmation email shortly with expected delivery date for your items.</h3>
+                  </div>
+
+                  <br><br><br>
+                  <div style="text-align:center; cursor: pointer">
+                        <b><p>Click to continue shopping</p></b>
+                      <img src="https://www.richardssupply.com/customer/rieqco/images/continue_shopping.png" width="10%" height="20%" onclick="continueShop()">
+                  </div>
+
+                  <script>
+                  
+                    function home(){
+                        window.location = "productsPage.html";
+                    }
+
+                    function continueShop(){
+                        window.location = "productsPage.html";
+                    }
+
+                  </script>
+    </body>
+</html>

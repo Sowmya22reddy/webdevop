@@ -10,6 +10,7 @@ export class URLHelper
         "userhome":false,
         "adminhome":false,
         "adminpage":false,
-        "products":false
+        "products":false,
+        "admin":true
     }
 }

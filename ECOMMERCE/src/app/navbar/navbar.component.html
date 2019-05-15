@@ -13,12 +13,15 @@
     <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.aboutus" routerLink="/about-us" >AboutUs</a>
     </li>&nbsp;&nbsp;
-    <li class="nav-item">
-      <a class="nav-link" *ngIf="currentURLs.login" routerLink="/login">Login</a>
+    <li class="nav-item" id="login">
+      <a class="nav-link" *ngIf="currentURLs.login" routerLink="/login">User</a>
     </li>&nbsp;&nbsp;
-    <li class="nav-item">
+    <li class="nav-item" id="admin">
+      <a class="nav-link" *ngIf="currentURLs.admin" routerLink="/adminlogin">Admin</a>
+    </li>&nbsp;&nbsp;
+    <!-- <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.register" routerLink="/register">SignUp</a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" *ngIf="currentURLs.products" routerLink="/products" >Products</a>
     </li>&nbsp;&nbsp;
@@ -26,13 +29,14 @@
       <a class="nav-link" *ngIf="currentURLs.cart" routerLink="/cart" >Cart</a>
     </li> &nbsp;&nbsp;
     <li class="nav-item">
-      <a class="nav-link" *ngIf="currentURLs.logout" style="cursor:pointer" (click) = "authService.logoutUser()">Logout</a>
-    </li> &nbsp;&nbsp;
-    <li class="nav-item">
-      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >Add Products</a>
+      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >AdminHome</a>
     </li>&nbsp;&nbsp;
     <li class="nav-item">
-      <a class="nav-link" *ngIf="currentURLs.adminpage" routerLink="/adminpage" >AdminHome</a>
-    </li>
+      <a class="nav-link" *ngIf="currentURLs.logout" style="cursor:pointer" (click) = "authService.logoutUser()">Logout</a>
+    </li> &nbsp;&nbsp;
+    <!-- <li class="nav-item">
+      <a class="nav-link" *ngIf="currentURLs.adminhome" routerLink="/admin-home" >Add Products</a>
+    </li>&nbsp;&nbsp; -->
+    
   </ul>
 </nav>

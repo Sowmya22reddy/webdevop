@@ -26,6 +26,14 @@ export class AuthService {
     return this.http.post("http://localhost:3209/api/login",login);
   }
 
+  loginAdmin(login){
+    return this.http.post("http://localhost:3209/api/admin_login",login);
+  }
+
+  registerAdmin(register){
+    return this.http.post("http://localhost:3209/api/admin_reg",register);
+  }
+
   addProduct(prod){
     return this.http.post("http://localhost:3209/api/addProduct",prod);
   }
@@ -83,7 +91,9 @@ export class AuthService {
     this.urls.home=true;
     this.urls.adminhome=false;
     this.urls.adminpage=false;
-    this.urls.products=false;
+    // this.urls.products=false;
+    this.urls.admin=true;
+    this.urls.aboutus=true;
     this.router.navigate(['']);
   }
 
